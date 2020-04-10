@@ -1,0 +1,46 @@
+@import "../../variables";
+
+.SectionPreview {
+  span {
+    padding-left: 1.5%;
+    font-size: 1.2em;
+    &:hover {
+      @include hovereffect($color1, $color0, $color3);
+    }
+  }
+
+  font-family: $fatfont;
+  color: $color1;
+  padding: 1%;
+
+  .card-image {
+    height: 18em;
+    width: 18em;
+    background-size: cover;
+    &:hover {
+      transition-timing-function: ease-in-out;
+      transform: scale(1.05);
+      box-shadow: 8px 8px 1px rgba(0, 0, 0, 0.308);
+      transition: transform 1s cubic-bezier(0.98, 1, 0.35, 0.95);
+      transition-timing-function: ease-in-out;
+      border-top: 7px solid $color3;
+      border-left: 7px solid $color3;
+
+      & + div {
+        text-shadow: 3px 3px 1px black;
+        transform: scale(1.05);
+        transition: transform 1s cubic-bezier(0.98, 1, 0.35, 0.95);
+        transform: scaleX(1.08);
+      }
+    }
+  }
+  .card-info {
+    & h5 {
+      font-family: $slimfont;
+      color: $color3;
+      font-size: 140%;
+      margin-top: 1em;
+      cursor: default;
+    }
+  }
+}

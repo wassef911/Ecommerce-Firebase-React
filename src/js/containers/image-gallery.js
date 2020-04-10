@@ -39,15 +39,14 @@ const sections = [
 function ImageGallery() {
   return (
     <div id="ImageGallery" className="d-flex flex-wrap justify-content-center">
-      {sections.map((value, i) => {
+      {sections.map((value) => {
         return (
           <GalleryImage
-            style={{ display: "inline-block" }}
-            key={i}
+            key={value.id}
             title={value.title}
-            imgURL={value.imageUrl}
+            imageUrl={value.imageUrl}
             size={value.size}
-            linkURL={value.linkUrl}
+            linkUrl={value.linkUrl}
           />
         );
       })}

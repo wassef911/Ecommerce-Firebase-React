@@ -1,23 +1,28 @@
 import React from "react";
-function GalleryImage({ title, imgURL, size, linkURL }) {
+import { withRouter } from "react-router-dom";
+
+function GalleryImage({ title, imageUrl, size, linkUrl, history, match }) {
   let width;
   let height;
-  if (size == "large") {
+  if (size === "large") {
     width = 25 * 1.5;
     height = 10 * 1.5;
   } else {
-    width = 25;
+    width = 25 * 1.01;
     height = 10 * 1.5;
   }
-  let style = {
-    backgroundImage: `url(${imgURL})`,
+  var style = {
+    backgroundImage: `url(${imageUrl})`,
     height: `${height}em`,
     width: `${width}em`,
   };
 
   return (
     <div className="GalleryImage m-2" style={style}>
-      <div className="sectiontitle mx-auto">
+      <div
+        className="sectiontitle mx-auto"
+        onClick={() => history.push(`${match.url}${linkUrl}`)}
+      >
         <h1>{title.toUpperCase()}</h1>
         <h4>SHOP NOW</h4>
       </div>
@@ -25,4 +30,4 @@ function GalleryImage({ title, imgURL, size, linkURL }) {
   );
 }
 
-export default GalleryImage;
+export default withRouter(GalleryImage);

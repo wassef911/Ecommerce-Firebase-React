@@ -5,3 +5,15 @@ font-family: 'Raleway', sans-serif;*/
 
 $fatfont: "Roboto", sans-serif;
 $slimfont: "Raleway", sans-serif;
+
+$color0: #272726;
+$color1: #ffa45c;
+$color2: #ffcdab;
+$color3: #fff4e3;
+
+@mixin hovereffect($bg, $col, $br) {
+  background-color: $bg;
+  color: $col;
+  cursor: default;
+  border-top: 7px solid $br;
+}

@@ -1,8 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
-import App from "./app";
+import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-ReactDOM.render(<App />, document.getElementById("root"));
+
+import App from "./app";
+
+ReactDOM.render(
+  <BrowserRouter>
+    <App className="container-fluid" />
+  </BrowserRouter>,
+  document.getElementById("root")
+);
 
 serviceWorker.unregister();
