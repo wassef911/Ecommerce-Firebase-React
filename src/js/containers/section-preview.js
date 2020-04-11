@@ -10,8 +10,8 @@ function SectionPreview({ title, items, routeName }) {
       <div className="d-flex flex-wrap justify-content-around">
         {items
           .filter((item) => item.id <= 4)
-          .map((item) => (
-            <CardPreview {...item} />
+          .map((item, i) => (
+            <CardPreview key={i} {...item} />
           ))}
       </div>
     </div>

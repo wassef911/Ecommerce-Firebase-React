@@ -1,8 +1,10 @@
 import React from "react";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { AiOutlineShopping } from "react-icons/ai";
+import { auth } from "../../firebase/firebase";
+import { Link } from "react-router-dom";
 
-function NavBar() {
+const NavBar = ({ currentUser }) => {
   return (
     <nav
       className="mb-1 navbar navbar-expand-lg navbar-light bg-light "
@@ -31,18 +33,24 @@ function NavBar() {
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
             <a className="nav-link" href="/shop">
-              <i className="fab fa-facebook-f"></i> SHOP
+              SHOP
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="/contact">
-              <i className="fab fa-instagram"></i> CONTACT
+              CONTACT
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/sign">
-              <i className="fab fa-instagram"></i> SIGN IN
-            </a>
+            {currentUser ? (
+              <a className="nav-link" href="/" onClick={() => auth.signOut()}>
+                SIGN OUT
+              </a>
+            ) : (
+              <Link className="nav-link" to="/sign">
+                SIGN IN
+              </Link>
+            )}
           </li>
           <li className="nav-item">
             <a className="nav-link" href="/">
@@ -53,6 +61,6 @@ function NavBar() {
       </div>
     </nav>
   );
-}
+};
 
 export default NavBar;
