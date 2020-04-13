@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { AiOutlineShopping } from "react-icons/ai";
+import "./navbar.scss";
+import CartIcon from "./cart-icon";
 
 const NavBar = ({ currentUser }) => {
   return (
@@ -55,8 +56,8 @@ const NavBar = ({ currentUser }) => {
             )}
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/">
-              <AiOutlineShopping style={{ color: "#272726" }} size={30} />
+            <a className="nav-link">
+              <CartIcon />
             </a>
           </li>
         </ul>
