@@ -29,7 +29,7 @@ function SignUp() {
         confirmPassword: "",
       });
     } catch (err) {
-      console.error(err);
+      console.log("signup .js", err);
     }
   };
   return (

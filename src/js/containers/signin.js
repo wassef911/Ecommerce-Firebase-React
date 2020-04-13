@@ -1,13 +1,25 @@
 import React, { useState } from "react";
-import { signInWithGoogle } from "../../firebase/firebase";
+import { signInWithGoogle, auth } from "../../firebase/firebase";
 function SignIn() {
   const [User, setUser] = useState({ email: "", password: "" });
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const { email, password } = User;
+    try {
+      await auth.signInWithEmailAndPassword(email.trim(), password);
+      setUser({ email: "", password: "" });
+      console.log(User);
+    } catch (err) {
+      console.log("signin .js", err);
+    }
+  };
+
   return (
-    <div className="signin">
+    <div className="signin mb-1">
       <h1>I already have an account </h1>
       <h3>Sign in with your email and password.</h3>
-      <form>
-        {" "}
+      <form onSubmit={handleSubmit}>
         <div className="input-group my-4">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
