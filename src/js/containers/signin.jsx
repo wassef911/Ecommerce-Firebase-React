@@ -17,7 +17,9 @@ function SignIn() {
 
   return (
     <div className="signin mb-1">
-      <h1>I already have an account </h1>
+      <h1>
+        <span>I already have an account</span>
+      </h1>
       <h3>Sign in with your email and password.</h3>
       <form onSubmit={handleSubmit}>
         <div className="input-group my-4">

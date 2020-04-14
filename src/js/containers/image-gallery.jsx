@@ -2,6 +2,17 @@ import React from "react";
 import GalleryImage from "../components/gallery-image";
 import "./gallery-image.scss";
 
+function ImageGallery() {
+  return (
+    <div id="ImageGallery" className="d-flex flex-wrap justify-content-center">
+      {sections.map((value) => {
+        return <GalleryImage key={value.id} {...value} />;
+      })}
+    </div>
+  );
+}
+
+export default ImageGallery;
 const sections = [
   {
     title: "hats",
@@ -36,22 +47,3 @@ const sections = [
     linkUrl: "shop/mens",
   },
 ];
-function ImageGallery() {
-  return (
-    <div id="ImageGallery" className="d-flex flex-wrap justify-content-center">
-      {sections.map((value) => {
-        return (
-          <GalleryImage
-            key={value.id}
-            title={value.title}
-            imageUrl={value.imageUrl}
-            size={value.size}
-            linkUrl={value.linkUrl}
-          />
-        );
-      })}
-    </div>
-  );
-}
-
-export default ImageGallery;

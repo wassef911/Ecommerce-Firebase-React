@@ -9,7 +9,7 @@ import Shop from "./js/pages/shop/shop";
 import Sign from "./js/pages/sign/sign";
 import { setCurrentUser } from "./redux/user/userActions";
 
-import "./app.css";
+import "./app.scss";
 
 function App({ setCurrentUser, currentUser }) {
   let unsubscribeFromAuth = null;

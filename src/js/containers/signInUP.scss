@@ -6,9 +6,12 @@
   h1 {
     color: $color2;
     font-family: $fatfont;
-    border-top: 7px solid $color0;
-    &:hover {
-      @include hovereffect($color2, $color0, $color3);
+    border-top: 7px solid rgba(0, 0, 0, 0);
+    & span:hover {
+      @include hovereffect($color1, white, $color3);
+      text-shadow: 2px 2px 1px black;
+      padding-right: 5px;
+      transition: all 200ms ease-in-out;
     }
   }
   h3 {

@@ -5,7 +5,10 @@
     padding-left: 1.5%;
     font-size: 1.2em;
     &:hover {
-      @include hovereffect($color1, $color0, $color3);
+      @include hovereffect($color1, $color3, $color3);
+      text-shadow: 2px 2px 1px black;
+      padding-right: 0.4em;
+      transition: all 250ms ease-in-out;
     }
   }
 
@@ -20,14 +23,14 @@
     &:hover {
       transition-timing-function: ease-in-out;
       transform: scale(1.05);
-      box-shadow: 8px 8px 1px rgba(0, 0, 0, 0.308);
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.26);
       transition: transform 1s cubic-bezier(0.98, 1, 0.35, 0.95);
       transition-timing-function: ease-in-out;
       border-top: 7px solid $color3;
       border-left: 7px solid $color3;
 
       & + div {
-        text-shadow: 3px 3px 1px black;
+        text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.685);
         transform: scale(1.05);
         transition: transform 1s cubic-bezier(0.98, 1, 0.35, 0.95);
         transform: scaleX(1.08);

@@ -12,6 +12,7 @@
       transition-timing-function: ease-out;
       & .sectiontitle {
         background-color: #ffcdab69;
+        transition: all 500ms ease-in-out;
       }
     }
 
@@ -34,6 +35,7 @@
       &:hover {
         cursor: pointer;
         background-color: #ffcdab;
+        transition: all 250ms ease-in-out;
         transform: scale(1.1);
       }
     }

@@ -1,3 +1,19 @@
+@import "../../variables";
+
+nav {
+  #logo {
+    color: $color1;
+    font-family: "Pacifico", cursive;
+    padding: 0.5vw 0vw 0vw 2vw;
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.438);
+
+    &:hover {
+      text-shadow: 0px 0px 1px black;
+      transition: all 400ms ease-in-out;
+    }
+  }
+}
+
 .cart-icon {
   z-index: 2;
   width: 2em;

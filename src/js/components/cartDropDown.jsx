@@ -21,7 +21,7 @@ function CartDropDown() {
             <span aria-hidden="true">&times;</span>
           </button>
 
-          <div class="modal-body">...</div>
+          <div class="modal-body">lore</div>
           <div class="modal-footer">
             <button
               type="button"

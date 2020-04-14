@@ -1,6 +1,8 @@
 import React from "react";
+
 import CardPreview from "../components/card-preview";
 import "./section-preview.scss";
+
 function SectionPreview({ title, items, routeName }) {
   return (
     <div className="SectionPreview">

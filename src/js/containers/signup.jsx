@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { auth, createUserProfileDocument } from "../../firebase/firebase";
+import TextInput from "../components/textInput";
 
 function SignUp() {
   const [User, setUser] = useState({
@@ -34,15 +35,12 @@ function SignUp() {
   };
   return (
     <div className="signup">
-      <h1>I don't have an account </h1>
+      <h1>
+        <span>I don't have an account</span>
+      </h1>
       <h3>Sign up with your email and password.</h3>
       <form onSubmit={handleSubmit}>
-        <div className="input-group my-4">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Display Name
-            </span>
-          </div>
+        <TextInput title="Display Name">
           <input
             type="text"
             className="form-control"
@@ -51,13 +49,9 @@ function SignUp() {
             value={User.displayName}
             onChange={(e) => setUser({ ...User, displayName: e.target.value })}
           ></input>
-        </div>
-        <div className="input-group my-4">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Email
-            </span>
-          </div>
+        </TextInput>
+
+        <TextInput title="Email">
           <input
             type="mail"
             className="form-control"
@@ -66,13 +60,9 @@ function SignUp() {
             value={User.email}
             onChange={(e) => setUser({ ...User, email: e.target.value })}
           ></input>
-        </div>
-        <div className="input-group my-4">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Password
-            </span>
-          </div>
+        </TextInput>
+
+        <TextInput title="Password">
           <input
             type="password"
             className="form-control"
@@ -81,13 +71,9 @@ function SignUp() {
             value={User.password}
             onChange={(e) => setUser({ ...User, password: e.target.value })}
           ></input>
-        </div>
-        <div className="input-group my-4">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Repeat Password
-            </span>
-          </div>
+        </TextInput>
+
+        <TextInput title="Repeat Password">
           <input
             type="password"
             className="form-control"
@@ -98,7 +84,7 @@ function SignUp() {
               setUser({ ...User, confirmPassword: e.target.value })
             }
           ></input>
-        </div>
+        </TextInput>
 
         <button
           type="submit"
