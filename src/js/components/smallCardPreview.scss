@@ -1,0 +1,11 @@
+.small-card {
+  cursor: default;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.123);
+  .small-card-image {
+    height: 6em;
+    width: 8em;
+    background-size: cover;
+    max-width: 25%;
+    max-height: 10%;
+  }
+}

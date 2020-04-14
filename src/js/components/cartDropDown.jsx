@@ -1,6 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
+import SmallCardPreview from "./card-previewIncart";
 
-function CartDropDown() {
+function CartDropDown({ cartItems }) {
   return (
     <div
       class="modal fade"
@@ -20,8 +22,11 @@ function CartDropDown() {
           >
             <span aria-hidden="true">&times;</span>
           </button>
-
-          <div class="modal-body">lore</div>
+          <div class="modal-body d-flex-column justify-content-center align-content-center ">
+            {cartItems.map((item) => (
+              <SmallCardPreview key={item.id} item={item} />
+            ))}
+          </div>
           <div class="modal-footer">
             <button
               type="button"
@@ -36,4 +41,8 @@ function CartDropDown() {
   );
 }
 
-export default CartDropDown;
+const mapStateToProps = ({ cart: { cartItems } }) => ({
+  cartItems: cartItems,
+});
+
+export default connect(mapStateToProps)(CartDropDown);

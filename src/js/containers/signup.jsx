@@ -13,7 +13,7 @@ function SignUp() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const { displayName, email, password, confirmPassword } = User;
-    if (password != confirmPassword) {
+    if (password !== confirmPassword) {
       alert("passwords don't match ! ");
       return;
     }
