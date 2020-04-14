@@ -2,7 +2,6 @@ import React from "react";
 import { auth } from "../../firebase/firebase";
 import { connect } from "react-redux";
 
-import { AiOutlineShoppingCart } from "react-icons/ai";
 import "./navbar.scss";
 import CartIcon from "./cart-icon";
 import CartDropDown from "./cartDropDown";
@@ -49,7 +48,7 @@ const NavBar = ({ currentUser }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser,
+const mapStateToProps = ({ user: { currentUser } }) => ({
+  currentUser: currentUser,
 });
 export default connect(mapStateToProps)(NavBar);
