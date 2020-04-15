@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 
 function GalleryImage({ title, imageUrl, size, linkUrl, history, match }) {
   let width;
@@ -16,16 +17,15 @@ function GalleryImage({ title, imageUrl, size, linkUrl, history, match }) {
     height: `${height}em`,
     width: `${width}em`,
   };
-
+  console.log(`${match.url}${linkUrl}`);
   return (
     <div className="GalleryImage m-2" style={style}>
-      <div
-        className="sectiontitle mx-auto"
-        onClick={() => history.push(`${match.url}${linkUrl}`)}
-      >
-        <h1>{title.toUpperCase()}</h1>
-        <h4>SHOP NOW</h4>
-      </div>
+      <Link to={`${match.url}${linkUrl}`} style={{ textDecoration: "none" }}>
+        <div className="sectiontitle mx-auto">
+          <h1>{title.toUpperCase()}</h1>
+          <h4>SHOP NOW</h4>
+        </div>
+      </Link>
     </div>
   );
 }

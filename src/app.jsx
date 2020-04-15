@@ -26,7 +26,6 @@ function App({ setCurrentUser, currentUser }) {
         });
       }
       setCurrentUser(userAuth);
-      console.log(auth);
     });
     return () => {
       unsubscribeFromAuth();

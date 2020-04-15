@@ -1,7 +1,7 @@
 import React from "react";
 import { auth } from "../../firebase/firebase";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 import "./navbar.scss";
 import CartIcon from "./cart-icon";
@@ -16,9 +16,9 @@ const NavBar = ({ currentUser, location }) => {
   return (
     <>
       <nav className="mb-1 navbar navbar-expand-lg navbar-light bg-light sticky-top">
-        <a className="navbar-brand p-0 " href="/">
+        <Link className="navbar-brand p-0 " to="/">
           <h3 id="logo">Cloth Store</h3>
-        </a>
+        </Link>
         <ToogleButton />
         <div className="collapse navbar-collapse" id="navbarSupportedContent-4">
           <ul className="navbar-nav ml-auto">
@@ -26,11 +26,11 @@ const NavBar = ({ currentUser, location }) => {
             <NavbarItem content="SHOP" to="/shop" />
             <NavbarItem content="CONTACT" to="/contact" />
             {currentUser ? (
-              <NavbarItem
-                content="SIGN OUT"
-                to="/"
-                onClick={() => auth.signOut()}
-              />
+              <NavbarItem>
+                <a className="nav-link" onClick={() => auth.signOut()} href="/">
+                  SIGN OUT
+                </a>
+              </NavbarItem>
             ) : (
               <NavbarItem content="SIGN IN" to="/sign" />
             )}

@@ -5,7 +5,7 @@ import "./section-preview.scss";
 
 function SectionPreview({ title, items, routeName }) {
   return (
-    <div className="SectionPreview">
+    <div className="SectionPreview" id={routeName}>
       <h1>
         <span>{title.toUpperCase()}</span>
       </h1>
