@@ -53,14 +53,14 @@ function SignIn() {
         <div className="d-flex justify-content-between">
           <button
             type="submit"
-            className="btn btn-block btn-outline-primary rounded-0"
+            className="btn btn-block mr-1 btn-primary rounded-0"
           >
             SIGN IN
           </button>
           <br />
           <button
             type="submit"
-            className="btn btn-block btn-outline-primary rounded-0"
+            className="btn btn-block ml-1 btn-primary rounded-0"
             onClick={signInWithGoogle}
           >
             SIGN IN WITH GOOGLE

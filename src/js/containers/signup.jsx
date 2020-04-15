@@ -86,10 +86,7 @@ function SignUp() {
           ></input>
         </TextInput>
 
-        <button
-          type="submit"
-          className="btn btn-block btn-outline-primary rounded-0"
-        >
+        <button type="submit" className="btn btn-block btn-primary rounded-0">
           SIGN IN
         </button>
       </form>

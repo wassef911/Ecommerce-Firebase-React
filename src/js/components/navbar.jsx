@@ -2,6 +2,7 @@ import React from "react";
 import { auth } from "../../firebase/firebase";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
+import { selectCurrentUser } from "../../redux/user/userSelector";
 
 import "./navbar.scss";
 import CartIcon from "./cart-icon";
@@ -52,7 +53,7 @@ const NavBar = ({ currentUser, location }) => {
   );
 };
 
-const mapStateToProps = ({ user: { currentUser } }) => ({
-  currentUser: currentUser,
+const mapStateToProps = (state) => ({
+  currentUser: selectCurrentUser(state),
 });
 export default connect(mapStateToProps)(withRouter(NavBar));

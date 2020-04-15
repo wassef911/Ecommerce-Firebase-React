@@ -17,7 +17,6 @@ function GalleryImage({ title, imageUrl, size, linkUrl, history, match }) {
     height: `${height}em`,
     width: `${width}em`,
   };
-  console.log(`${match.url}${linkUrl}`);
   return (
     <div className="GalleryImage m-2" style={style}>
       <Link to={`${match.url}${linkUrl}`} style={{ textDecoration: "none" }}>

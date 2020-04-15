@@ -2,29 +2,30 @@
 
 .sign {
   padding: 1em;
-
   h1 {
-    color: $color2;
+    color: $color0;
     font-family: $fatfont;
-    border-top: 7px solid rgba(0, 0, 0, 0);
+    border-top: 7px solid white;
     & span:hover {
-      @include hovereffect($color1, white, $color3);
-      text-shadow: 2px 2px 1px black;
+      @include hovereffect($color2, $color0, $color0);
       padding-right: 5px;
-      transition: all 200ms ease-in-out;
+      transition: all 400ms ease-in-out;
     }
   }
   h3 {
-    color: $color3;
+    color: $color0;
     font-family: $slimfont;
     font-size: 130%;
   }
   & .signin {
-    border: 0.5em solid $color3;
     width: 40em;
     height: 32.5em;
     padding: 1em;
     padding-top: 1em;
+    background-color: rgb(255, 255, 255);
+    border-top-right-radius: 1em;
+    border-top-left-radius: 2em;
+    border-bottom-right-radius: 5em;
   }
 
   & .signup {
@@ -33,5 +34,9 @@
     height: 32.5em;
     padding: 1em;
     padding-top: 1em;
+    background-color: white;
+    border-top-right-radius: 2em;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 5em;
   }
 }

@@ -13,26 +13,26 @@ nav {
       transition: all 400ms ease-in-out;
     }
   }
-}
 
-.cart-icon {
-  z-index: 2;
-  width: 2em;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  .shopping-icon {
-    width: 24px;
-    height: 24px;
-  }
+  .cart-icon {
+    z-index: 2;
+    width: 2em;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    .shopping-icon {
+      width: 24px;
+      height: 24px;
+    }
 
-  .item-count {
-    position: absolute;
-    font-size: 11px;
-    font-weight: bold;
-    bottom: 0px;
-    text-shadow: 0px 0px 1px rgba(228, 168, 78, 0.733);
+    .item-count {
+      position: absolute;
+      font-size: 11px;
+      font-weight: bold;
+      bottom: 0px;
+      text-shadow: 0px 0px 1px rgba(228, 168, 78, 0.733);
+    }
   }
 }

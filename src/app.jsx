@@ -7,6 +7,8 @@ import NavBar from "./js/components/navbar";
 import Homepage from "./js/pages/homepage/homepage";
 import Shop from "./js/pages/shop/shop";
 import Sign from "./js/pages/sign/sign";
+import Checkout from "./js/pages/checkout/checkout";
+
 import { setCurrentUser } from "./redux/user/userActions";
 
 import "./app.scss";
@@ -42,6 +44,11 @@ function App({ setCurrentUser, currentUser }) {
           exact
           path="/sign"
           render={() => (currentUser ? <Redirect to="/" /> : <Sign />)}
+        />
+        <Route
+          exact
+          path="/checkout"
+          render={() => (currentUser ? <Redirect to="/" /> : <Checkout />)}
         />
       </Switch>
     </>
