@@ -1,13 +1,8 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 
-function NavbarItem({ content, to, children, location }) {
-  let locationName = location.pathname;
-  if (locationName == "/") locationName = "home";
-  document.title = locationName.split("/").join(" ").toUpperCase();
-  console.log(location);
+function NavbarItem({ content, to, children }) {
   return (
     <>
       <li className="nav-item">
@@ -23,4 +18,4 @@ function NavbarItem({ content, to, children, location }) {
   );
 }
 
-export default withRouter(NavbarItem);
+export default NavbarItem;

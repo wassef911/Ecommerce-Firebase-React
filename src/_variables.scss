@@ -11,17 +11,13 @@ $fatfont: "Roboto", sans-serif;
 $slimfont: "Raleway", sans-serif;
 $logofont: "Raleway", sans-serif;
 
-$color0: linear-gradient(
-    to bottom,
-    rgba(37, 37, 37, 0.514) 0%,
-    rgba(0, 0, 0, 0.829) 100%
-  ),
+$color0: linear-gradient(60deg, rgb(13, 20, 20) 20%, rgb(0, 6, 14) 100%),
   radial-gradient(
       at top center,
-      rgba(48, 48, 48, 0.623) 0%,
-      rgba(0, 0, 0, 0.575) 120%
+      rgb(0, 35, 46) 10%,
+      rgba(0, 13, 20, 0.575) 100%
     )
-    #000000ea;
+    #00060e;
 $color1: #ffa45c;
 $color2: #ffcdab;
 $color3: #fff4e3;

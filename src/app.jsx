@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { auth, createUserProfileDocument } from "./firebase/firebase";
 import { connect } from "react-redux";
@@ -17,16 +17,16 @@ function App({ setCurrentUser, currentUser }) {
     unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
-
+        console.log(unsubscribeFromAuth);
         userRef.onSnapshot((snapShot) => {
           setCurrentUser({
             id: snapShot.id,
             ...snapShot.data(),
           });
         });
-      } else {
-        setCurrentUser(userAuth);
       }
+      setCurrentUser(userAuth);
+      console.log(auth);
     });
     return () => {
       unsubscribeFromAuth();
@@ -34,7 +34,7 @@ function App({ setCurrentUser, currentUser }) {
   }, []);
 
   return (
-    <div>
+    <>
       <NavBar />
       <Switch>
         <Route exact path="/" component={Homepage} />
@@ -45,7 +45,7 @@ function App({ setCurrentUser, currentUser }) {
           render={() => (currentUser ? <Redirect to="/" /> : <Sign />)}
         />
       </Switch>
-    </div>
+    </>
   );
 }
 

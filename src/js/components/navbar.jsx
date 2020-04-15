@@ -1,6 +1,7 @@
 import React from "react";
 import { auth } from "../../firebase/firebase";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 import "./navbar.scss";
 import CartIcon from "./cart-icon";
@@ -8,10 +9,13 @@ import CartDropDown from "./cartDropDown";
 import NavbarItem from "./navbarItem";
 import ToogleButton from "./toogleButton";
 
-const NavBar = ({ currentUser }) => {
+const NavBar = ({ currentUser, location }) => {
+  let locationName = location.pathname;
+  if (locationName == "/") locationName = "home";
+  document.title = locationName.split("/").join(" ").toUpperCase();
   return (
     <>
-      <nav className="mb-1 navbar navbar-expand-lg navbar-light bg-light ">
+      <nav className="mb-1 navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <a className="navbar-brand p-0 " href="/">
           <h3 id="logo">Cloth Store</h3>
         </a>
@@ -51,4 +55,4 @@ const NavBar = ({ currentUser }) => {
 const mapStateToProps = ({ user: { currentUser } }) => ({
   currentUser: currentUser,
 });
-export default connect(mapStateToProps)(NavBar);
+export default connect(mapStateToProps)(withRouter(NavBar));
