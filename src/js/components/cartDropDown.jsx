@@ -1,10 +1,11 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import SmallCardPreview from "./card-previewIncart";
 import { selectCartItems } from "../../redux/cart/cartSelector";
 import { createStructuredSelector } from "reselect";
 
-function CartDropDown({ cartItems }) {
+function CartDropDown({ cartItems, history }) {
   return (
     <div
       class="modal fade"
@@ -34,18 +35,13 @@ function CartDropDown({ cartItems }) {
             )}
           </div>
           <div class="modal-footer">
-            <a
-              href="/checkout"
-              style={{ textDecoration: "none" }}
-              className="btn-block"
+            <button
+              type="button"
+              class="btn btn-outline-primary btn-sm btn-block"
+              onClick={() => history.push("/checkout")}
             >
-              <button
-                type="button"
-                class="btn btn-outline-primary btn-sm btn-block"
-              >
-                GO TO CHECKOUT
-              </button>
-            </a>
+              GO TO CHECKOUT
+            </button>
           </div>
         </div>
       </div>
@@ -64,4 +60,4 @@ const mapStateToProps = (state) => ({
 
 */
 
-export default connect(mapStateToProps)(CartDropDown);
+export default withRouter(connect(mapStateToProps)(CartDropDown));

@@ -1,0 +1,61 @@
+@import "../../../variables";
+
+.titles {
+  text-align: center;
+  color: white;
+  cursor: default;
+
+  .title {
+    font-size: 3vw;
+    width: 15%;
+    margin-left: -3%;
+    border-bottom: 1px solid white;
+  }
+}
+.items {
+  height: 100%;
+  width: 100%;
+  padding: 1%;
+  color: white;
+  cursor: default;
+  font-family: $slimfont;
+  & .item {
+    border: 5px solid white;
+    border-top: unset;
+    border-bottom: unset;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.548);
+    height: 100%;
+    width: 100%;
+    margin: 1%;
+    text-align: center;
+    &:hover {
+      transform: scale(1.01);
+      transition: all 200ms;
+    }
+    & .img {
+      background-size: cover;
+      height: 12vw;
+      width: 12vw;
+    }
+    & .AddItems {
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      width: 10%;
+      h5 {
+        margin-right: 5px;
+      }
+      & span:hover {
+        color: green;
+        cursor: pointer;
+      }
+    }
+    h5 {
+      width: 17%;
+    }
+    .remove:hover {
+      color: red;
+      cursor: pointer;
+    }
+  }
+}

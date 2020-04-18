@@ -14,3 +14,11 @@ export const selectCartItemsCount = createSelector(
       return sum + value.quantity;
     }, 0)
 );
+
+export const selectCartItemsTotal = createSelector(
+  [selectCartItems],
+  (cartItems) =>
+    cartItems.reduce(function (sum, value) {
+      return sum + value.price * value.quantity;
+    }, 0)
+);

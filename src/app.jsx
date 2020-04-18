@@ -45,11 +45,7 @@ function App({ setCurrentUser, currentUser }) {
           path="/sign"
           render={() => (currentUser ? <Redirect to="/" /> : <Sign />)}
         />
-        <Route
-          exact
-          path="/checkout"
-          render={() => (currentUser ? <Redirect to="/" /> : <Checkout />)}
-        />
+        <Route exact path="/checkout" component={Checkout} />
       </Switch>
     </>
   );
