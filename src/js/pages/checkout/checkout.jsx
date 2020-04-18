@@ -45,9 +45,11 @@ function Checkout({ cartItems, Total, clearItem, decQuantity, addItem }) {
           </div>
         ))}
       </div>
-      <div>
-        <h4 className="total">total : {Total} DT</h4>
-      </div>
+      {Total > 0 ? (
+        <div>
+          <h4 className="total">Total : {Total} DT</h4>
+        </div>
+      ) : null}
     </div>
   );
 }
