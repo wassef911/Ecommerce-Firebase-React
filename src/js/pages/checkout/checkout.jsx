@@ -5,15 +5,21 @@ import {
   selectCartItems,
   selectCartItemsTotal,
 } from "../../../redux/cart/cartSelector";
+import {
+  clearItem,
+  decQuantity,
+  addItem,
+} from "../../../redux/cart/cartAction";
+
 import "./checkout.scss";
 
-function Checkout({ cartItems, Total }) {
+function Checkout({ cartItems, Total, clearItem, decQuantity, addItem }) {
   return (
     <div>
       <div className="d-flex  align-items-center justify-content-around titles">
         {["Product", "Description", "Quantity", "Price", "Remove"].map(
           (value) => (
-            <h4 className="title">{value}</h4>
+            <h4 className="title ">{value}</h4>
           )
         )}
       </div>
@@ -27,13 +33,15 @@ function Checkout({ cartItems, Total }) {
             ></div>
             <h5>{value.name}</h5>
             <span className="AddItems">
-              <span>&#10096; </span>
+              <span onClick={() => decQuantity(value)}>&#10096; </span>
               <h5> {value.quantity} </h5>
-              <span> &#10097;</span>
+              <span onClick={() => addItem(value)}> &#10097;</span>
             </span>
 
             <h5>{value.price}</h5>
-            <h5 className="remove">&#10005;</h5>
+            <h5 className="remove" onClick={() => clearItem(value)}>
+              &#10005;
+            </h5>
           </div>
         ))}
       </div>
@@ -43,9 +51,13 @@ function Checkout({ cartItems, Total }) {
     </div>
   );
 }
-
+const mapDispatchToProps = (dispatch) => ({
+  clearItem: (item) => dispatch(clearItem(item)),
+  decQuantity: (item) => dispatch(decQuantity(item)),
+  addItem: (item) => dispatch(addItem(item)),
+});
 const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
   Total: selectCartItemsTotal,
 });
-export default connect(mapStateToProps)(Checkout);
+export default connect(mapStateToProps, mapDispatchToProps)(Checkout);

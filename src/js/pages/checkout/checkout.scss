@@ -12,6 +12,7 @@
     border-bottom: 1px solid white;
   }
 }
+
 .items {
   height: 100%;
   width: 100%;
@@ -19,6 +20,7 @@
   color: white;
   cursor: default;
   font-family: $slimfont;
+
   & .item {
     border: 5px solid white;
     border-top: unset;
@@ -29,6 +31,9 @@
     margin: 1%;
     text-align: center;
     &:hover {
+      border: 7px solid white;
+      border-top: unset;
+      border-bottom: unset;
       transform: scale(1.01);
       transition: all 200ms;
     }
@@ -42,8 +47,8 @@
       justify-content: center;
       height: 100%;
       width: 10%;
-      h5 {
-        margin-right: 5px;
+      span {
+        margin: 0px 3px;
       }
       & span:hover {
         color: green;
@@ -58,4 +63,9 @@
       cursor: pointer;
     }
   }
+}
+.total {
+  color: white;
+  font-size: 6/2vw;
+  margin-left: 1vw;
 }
