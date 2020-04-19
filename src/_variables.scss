@@ -39,3 +39,51 @@ $color3: #fff4e3;
   border-top-left-radius: $topLeft;
   border-bottom-left-radius: $bottomLeft;
 }
+@mixin glowBlock($top: 10px, $width: 95%, $height: 3vw) {
+  .block {
+    z-index: -100;
+    position: absolute;
+    top: $top;
+    width: $width;
+    height: $height;
+  }
+  .block:before,
+  .block:after {
+    content: "";
+    position: absolute;
+    background: linear-gradient(
+      45deg,
+      #fb009480,
+      #0000ff80,
+      #00ff0080,
+      #ffff0080,
+      #ff000080,
+      #fb009480,
+      #0000ff80,
+      #00ff0080,
+      #ffff0080,
+      #ff000080
+    );
+    background-size: 1200%;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    z-index: -200;
+    animation: steam 40s ease-in-out infinite;
+  }
+
+  @keyframes steam {
+    0% {
+      background-position: 0 0;
+    }
+    50% {
+      background-position: 400% 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+
+  .block:after {
+    filter: blur(50px);
+  }
+}

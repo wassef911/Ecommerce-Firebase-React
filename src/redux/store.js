@@ -3,18 +3,11 @@ import logger from "redux-logger";
 import rootReducer from "./root-reducer";
 import { persistStore } from "redux-persist";
 
-export const store = createStore(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const middleWares = [];
+if (process.env.NODE_ENV == "development") {
+  middleWares.push(logger);
+}
+
+export const store = createStore(rootReducer, applyMiddleware(...middleWares));
 
 export const persistor = persistStore(store);
-
-/*
-const middlewares = [logger];
-const store = createStore(rootReducer, applyMiddleware(...middlewares));
-const store = createStore(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
-*/

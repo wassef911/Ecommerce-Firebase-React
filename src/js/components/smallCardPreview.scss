@@ -3,9 +3,12 @@
 .small-card {
   cursor: default;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.37);
+  background: $color0;
+  color: white;
+  font-family: $slimfont;
   &:hover {
-    transition: all 250ms ease-in-out;
-    transform: scale(1.1);
+    transition: all 200ms ease-in-out;
+    transform: scale(1.05);
   }
   .small-card-image {
     height: 6em;

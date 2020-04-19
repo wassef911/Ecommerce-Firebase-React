@@ -20,6 +20,7 @@ const NavBar = ({ currentUser, location }) => {
         <Link className="navbar-brand p-0 " to="/">
           <h3 id="logo">Cloth Store</h3>
         </Link>
+
         <ToogleButton />
         <div className="collapse navbar-collapse" id="navbarSupportedContent-4">
           <ul className="navbar-nav ml-auto">
@@ -49,6 +50,7 @@ const NavBar = ({ currentUser, location }) => {
         </div>
       </nav>
       <CartDropDown />
+      <div className="block"></div>
     </>
   );
 };

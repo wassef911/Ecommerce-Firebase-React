@@ -17,7 +17,7 @@ function GalleryImage({ title, imageUrl, size, linkUrl }) {
     width: `${width}em`,
   };
   return (
-    <div className="GalleryImage m-2" style={style}>
+    <div className="GalleryImage m-3 bounceIn fast" style={style}>
       <Link to={linkUrl} style={{ textDecoration: "none" }}>
         <div className="sectiontitle mx-auto">
           <h1>{title.toUpperCase()}</h1>
