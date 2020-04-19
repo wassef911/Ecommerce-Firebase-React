@@ -28,3 +28,14 @@ $color3: #fff4e3;
   cursor: default;
   border-top: 7px solid $br;
 }
+
+@mixin edgedContainer($topRight: 0, $topLeft: 0, $bottomLeft: 0) {
+  width: 40em;
+  height: 32.5em;
+  padding: 1em;
+  padding-top: 1em;
+  background-color: white;
+  border-top-right-radius: $topRight;
+  border-top-left-radius: $topLeft;
+  border-bottom-left-radius: $bottomLeft;
+}

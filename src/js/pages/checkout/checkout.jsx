@@ -12,6 +12,7 @@ import {
 } from "../../../redux/cart/cartAction";
 
 import "./checkout.scss";
+import StripeButton from "../../components/stripeButton";
 
 function Checkout({ cartItems, Total, clearItem, decQuantity, addItem }) {
   return (
@@ -46,8 +47,15 @@ function Checkout({ cartItems, Total, clearItem, decQuantity, addItem }) {
         ))}
       </div>
       {Total > 0 ? (
-        <div>
-          <h4 className="total">Total : {Total} DT</h4>
+        <div className="total">
+          <div className="d-flex justify-content-between">
+            <h4>Total : {Total} DT</h4>
+            <StripeButton price={Total} />
+          </div>
+          <p>
+            * Please use the following test credit card 4242 4242 4242 4242
+            ---EXP : 01/23 --CW : 123 *
+          </p>
         </div>
       ) : null}
     </div>

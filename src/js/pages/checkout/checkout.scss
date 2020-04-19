@@ -1,12 +1,14 @@
 @import "../../../variables";
 
 .titles {
+  margin-left: 4%;
+  width: 95%;
   text-align: center;
   color: white;
   cursor: default;
   .title {
-    font-size: 2.5vw;
-    width: 15%;
+    font-size: 2vw;
+    width: 13%;
     margin-left: -3%;
     border-bottom: 1px solid white;
   }
@@ -26,11 +28,10 @@
     border-bottom: unset;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.548);
     height: 100%;
-    width: 100%;
+    width: 90%;
     margin: 1%;
     text-align: center;
     &:hover {
-      border: 7px solid white;
       border-top: unset;
       border-bottom: unset;
       transform: scale(1.01);
@@ -66,5 +67,6 @@
 .total {
   color: white;
   font-size: 6/2vw;
-  margin-left: 1vw;
+  margin-left: 5%;
+  width: 90%;
 }

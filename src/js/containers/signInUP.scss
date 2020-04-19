@@ -18,25 +18,10 @@
     font-size: 130%;
   }
   & .signin {
-    width: 40em;
-    height: 32.5em;
-    padding: 1em;
-    padding-top: 1em;
-    background-color: rgb(255, 255, 255);
-    border-top-right-radius: 1em;
-    border-top-left-radius: 2em;
-    border-bottom-right-radius: 5em;
+    @include edgedContainer(1em, 2em, 4em);
   }
 
   & .signup {
-    border: 0.5em solid $color3;
-    width: 40em;
-    height: 32.5em;
-    padding: 1em;
-    padding-top: 1em;
-    background-color: white;
-    border-top-right-radius: 2em;
-    border-top-left-radius: 1em;
-    border-bottom-left-radius: 5em;
+    @include edgedContainer(2em, 1em, 4em);
   }
 }
