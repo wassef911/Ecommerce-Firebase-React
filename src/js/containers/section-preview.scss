@@ -11,11 +11,12 @@
       transition: all 250ms ease-in-out;
     }
   }
-
   font-family: $fatfont;
   color: $color1;
   padding: 1%;
-
+  .fixmargin {
+    margin-left: 1vw;
+  }
   .card-image {
     height: 18em;
     width: 18em;

@@ -1,8 +1,7 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
-import { HashLink as Link } from "react-router-hash-link";
+import { withRouter, Link } from "react-router-dom";
 
-function GalleryImage({ title, imageUrl, size, linkUrl, history, match }) {
+function GalleryImage({ title, imageUrl, size, linkUrl }) {
   let width;
   let height;
   if (size === "large") {
@@ -19,7 +18,7 @@ function GalleryImage({ title, imageUrl, size, linkUrl, history, match }) {
   };
   return (
     <div className="GalleryImage m-2" style={style}>
-      <Link to={`${match.url}${linkUrl}`} style={{ textDecoration: "none" }}>
+      <Link to={linkUrl} style={{ textDecoration: "none" }}>
         <div className="sectiontitle mx-auto">
           <h1>{title.toUpperCase()}</h1>
           <h4>SHOP NOW</h4>
