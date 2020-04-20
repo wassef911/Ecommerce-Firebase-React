@@ -16,9 +16,9 @@ const NavBar = ({ currentUser, location }) => {
   document.title = locationName.split("/").join(" ").toUpperCase();
   return (
     <>
-      <nav className="mb-1 navbar navbar-expand-lg navbar-light bg-light sticky-top">
-        <Link className="navbar-brand p-0 " to="/">
-          <h3 id="logo">Cloth Store</h3>
+      <nav className="mb-1 navBar navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <Link className="navbar-brand p-0" to="/">
+          <h3 className=" logo">Cloth Store</h3>
         </Link>
 
         <ToogleButton />

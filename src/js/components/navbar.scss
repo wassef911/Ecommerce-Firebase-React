@@ -1,15 +1,14 @@
 @import "../../variables";
 
-nav {
+.navBar {
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.719);
-  #logo {
+  .logo {
     color: $color1;
-    font-family: "Pacifico", cursive;
+    font-family: $logofont;
     padding: 0.5vw 0vw 0vw 2vw;
     text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.438);
-
     &:hover {
-      text-shadow: 0px 0px 1px black;
+      text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.755);
       transition: all 400ms ease-in-out;
     }
   }
@@ -36,4 +35,4 @@ nav {
     }
   }
 }
-@include glowBlock(10px, 97%, 3vw);
+@include glowBlock(0px, 99%, 4.3vw);
