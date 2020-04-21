@@ -12,7 +12,7 @@ import ToogleButton from "./toogleButton";
 
 const NavBar = ({ currentUser, location }) => {
   let locationName = location.pathname;
-  if (locationName == "/") locationName = "home";
+  if (locationName === "/") locationName = "home";
   document.title = locationName.split("/").join(" ").toUpperCase();
   return (
     <>

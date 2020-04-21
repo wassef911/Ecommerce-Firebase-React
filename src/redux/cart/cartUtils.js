@@ -1,5 +1,7 @@
 export const addItemToCart = (cartItems, ItemToAdd) => {
-  const exstingItem = cartItems.find((cartItem) => cartItem.id == ItemToAdd.id);
+  const exstingItem = cartItems.find(
+    (cartItem) => cartItem.id === ItemToAdd.id
+  );
   if (exstingItem) {
     return cartItems.map((cartItem) =>
       cartItem.id === ItemToAdd.id
@@ -18,6 +20,6 @@ export const DecQuant = (cartItems, ItemToDecQuant) => {
         : cartItem
     );
   } else {
-    return cartItems.filter((item) => item.id != ItemToDecQuant.id);
+    return cartItems.filter((item) => item.id !== ItemToDecQuant.id);
   }
 };

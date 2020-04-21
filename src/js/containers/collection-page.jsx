@@ -5,6 +5,8 @@ import CardPreview from "../components/card-preview";
 import "./section-preview.scss";
 function CollectionPage({ collection }) {
   const { title, items } = collection;
+  console.log("nik omk");
+
   return (
     <div className="SectionPreview ">
       <h1>
