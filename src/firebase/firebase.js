@@ -2,7 +2,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
 
-var firebaseConfig = {
+let firebaseConfig = {
   apiKey: "AIzaSyCyhZJA1aZcQlCiwU-Ov8HQBsYl1FgWK8c",
   authDomain: "cloth-store-6d5c0.firebaseapp.com",
   databaseURL: "https://cloth-store-6d5c0.firebaseio.com",
@@ -12,6 +12,7 @@ var firebaseConfig = {
   appId: "1:686652045184:web:806c846e8d78cb5b6d3365",
   measurementId: "G-FMK7W84WN9",
 };
+firebase.initializeApp(firebaseConfig);
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return null;
@@ -31,13 +32,24 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         ...additionalData,
       });
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   }
   return userRef;
 };
 
-firebase.initializeApp(firebaseConfig);
+export const addCollectionAndDocuments = async (
+  collectionKey,
+  objectsToAdd
+) => {
+  const collectionRef = firestore.collection(collectionKey);
+  const batch = firestore.batch();
+  objectsToAdd.forEach((obj) => {
+    const newDocRef = collectionRef.doc();
+    batch.set(newDocRef, obj);
+  });
+  return await batch.commit();
+};
 
 export const auth = firebase.auth();
 
