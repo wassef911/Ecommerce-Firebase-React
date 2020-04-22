@@ -1,10 +1,11 @@
 import React from "react";
+import { ReactComponent as Toggler } from "../../assets/open-menu.svg";
 
 function ToogleButton() {
   return (
     <>
       <button
-        className="navbar-toggler"
+        className="navbar-toggler toggle"
         type="button"
         data-toggle="collapse"
         data-target="#navbarSupportedContent-4"
@@ -12,7 +13,7 @@ function ToogleButton() {
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span className="navbar-toggler-icon"></span>
+        <Toggler className="toggler" />
       </button>
     </>
   );
