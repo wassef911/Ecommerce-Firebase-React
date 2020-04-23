@@ -2,15 +2,19 @@ import React from "react";
 import { auth } from "../../firebase/firebase";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
-import { selectCurrentUser } from "../../redux/user/userSelector";
 
-import "./navbar.scss";
+import { selectCurrentUser } from "../../redux/user/userSelector";
+import { selectHidden } from "../../redux/cart/cartSelector";
+import { toggleCartHidden } from "../../redux/cart/cartAction";
+
 import CartIcon from "./cart-icon";
 import CartDropDown from "./cartDropDown";
 import NavbarItem from "./navbarItem";
 import ToogleButton from "./toogleButton";
 
-const NavBar = ({ currentUser, location }) => {
+import "./navbar.scss";
+
+const NavBar = ({ currentUser, location, hidden, toggleCartHidden }) => {
   let locationName = location.pathname;
   if (locationName === "/") locationName = "home";
   document.title = locationName.split("/").join(" ").toUpperCase();
@@ -42,6 +46,7 @@ const NavBar = ({ currentUser, location }) => {
                 class="btn nav-link p-1"
                 data-toggle="modal"
                 data-target="#exampleModalScrollable"
+                onClick={toggleCartHidden}
               >
                 <CartIcon />
               </button>
@@ -49,13 +54,18 @@ const NavBar = ({ currentUser, location }) => {
           </ul>
         </div>
       </nav>
-      <CartDropDown />
+      {hidden ? null : <CartDropDown />}
       <div className="block"></div>
     </>
   );
 };
 
+const mapDispatchToProps = (dispatch) => ({
+  toggleCartHidden: () => dispatch(toggleCartHidden()),
+});
+
 const mapStateToProps = (state) => ({
   currentUser: selectCurrentUser(state),
+  hidden: selectHidden(state),
 });
-export default connect(mapStateToProps)(withRouter(NavBar));
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(NavBar));

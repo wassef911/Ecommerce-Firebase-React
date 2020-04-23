@@ -46,7 +46,11 @@ function App({ setCurrentUser, currentUser, collectionsArray }) {
           path="/sign"
           render={() => (currentUser ? <Redirect to="/" /> : <Sign />)}
         />
-        <Route exact path="/checkout" component={Checkout} />
+        <Route
+          exact
+          path="/checkout"
+          render={() => (currentUser ? <Checkout /> : <Redirect to="/" />)}
+        />
       </Switch>
     </>
   );

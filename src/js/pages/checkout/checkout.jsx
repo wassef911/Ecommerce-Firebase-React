@@ -16,14 +16,20 @@ import StripeButton from "../../components/stripeButton";
 
 function Checkout({ cartItems, Total, clearItem, decQuantity, addItem }) {
   return (
-    <div>
-      <div className="d-flex  align-items-center justify-content-around titles">
-        {["Product", "Description", "Quantity", "Price", "Remove"].map(
-          (value) => (
-            <h4 className="title ">{value}</h4>
-          )
-        )}
-      </div>
+    <>
+      {Total > 0 ? (
+        <div className="d-flex  align-items-center justify-content-around titles">
+          {["Product", "Description", "Quantity", "Price", "Remove"].map(
+            (value) => (
+              <h4 className="title ">{value}</h4>
+            )
+          )}
+        </div>
+      ) : (
+        <div class="alert alert-warning m-4">
+          Your cart is empty go buy something ...
+        </div>
+      )}
 
       <div className="d-flex flex-column align-items-center items">
         {cartItems.map((value) => (
@@ -58,7 +64,7 @@ function Checkout({ cartItems, Total, clearItem, decQuantity, addItem }) {
           </p>
         </div>
       ) : null}
-    </div>
+    </>
   );
 }
 const mapDispatchToProps = (dispatch) => ({
