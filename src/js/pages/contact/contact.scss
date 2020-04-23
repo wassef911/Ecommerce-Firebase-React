@@ -1,0 +1,5 @@
+@import "../../../variables";
+.contact {
+  @include edgedContainer(4em, 2em, 4em);
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.486);
+}

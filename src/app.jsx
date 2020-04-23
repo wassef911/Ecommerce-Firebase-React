@@ -14,6 +14,7 @@ import Sign from "./js/pages/sign/sign";
 import Checkout from "./js/pages/checkout/checkout";
 
 import "./app.scss";
+import Contact from "./js/pages/contact/contact";
 
 function App({ setCurrentUser, currentUser, collectionsArray }) {
   let unsubscribeFromAuth = null;
@@ -46,6 +47,7 @@ function App({ setCurrentUser, currentUser, collectionsArray }) {
           path="/sign"
           render={() => (currentUser ? <Redirect to="/" /> : <Sign />)}
         />
+        <Route exact path="/contact" component={Contact} />
         <Route
           exact
           path="/checkout"
