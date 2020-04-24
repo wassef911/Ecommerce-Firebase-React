@@ -6,7 +6,7 @@ function TextInput({ title, children }) {
       <div className="input-group my-4">
         <div className="input-group-prepend">
           <span className="input-group-text" id="basic-addon1">
-            Repeat Password
+            {title}
           </span>
         </div>
         {children}

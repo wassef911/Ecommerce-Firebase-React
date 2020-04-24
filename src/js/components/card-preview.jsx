@@ -4,7 +4,7 @@ import { addItem } from "../../redux/cart/cartAction";
 function CardPreview({ item, addItem }) {
   const { name, imageUrl, price } = item;
   return (
-    <div className="mx-3 animated fadeIn fast ">
+    <div className="m-2 animated fadeIn fast ">
       <div>
         <div
           className="card-image py-2 d-flex flex-column-reverse"

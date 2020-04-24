@@ -1,51 +1,42 @@
 import React from "react";
 
+import TextInput from "../../components/textInput";
+
 import "./contact.scss";
 function Contact() {
   return (
-    <div className="d-flex justify-content-center m-4">
-      <form className="contact ">
-        <div className="input-group my-4">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Email
-            </span>
-          </div>
+    <div className="d-flex justify-content-center  m-4">
+      <form className="contact d-flex flex-column justify-content-center">
+        <TextInput title="Your Email">
           <input
-            type="mail"
+            type="text"
             className="form-control"
             placeholder="name@stuff.com"
             aria-describedby="basic-addon1"
           ></input>
-        </div>
-        <div className="input-group my-4">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Password
-            </span>
-          </div>
+        </TextInput>
+
+        <TextInput title="Your Email">
           <input
-            type="password"
+            type="text"
             className="form-control"
-            placeholder="*********"
+            placeholder="name@stuff.com"
             aria-describedby="basic-addon1"
           ></input>
+        </TextInput>
+
+        <div class="input-group my-4">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Your message </span>
+          </div>
+          <textarea class="form-control"></textarea>
         </div>
-        <div className="d-flex justify-content-between">
-          <button
-            type="submit"
-            className="btn btn-block mr-1 btn-primary rounded-0"
-          >
-            SIGN IN
-          </button>
-          <br />
-          <button
-            type="submit"
-            className="btn btn-block ml-1 btn-primary rounded-0"
-          >
-            SIGN IN WITH GOOGLE
-          </button>
-        </div>
+        <button
+          type="submit"
+          className="my-4 btn btn-block  btn-primary rounded-0"
+        >
+          Send &#8594;
+        </button>
       </form>
     </div>
   );

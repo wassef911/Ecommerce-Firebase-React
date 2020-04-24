@@ -11,7 +11,7 @@ function CollectionPage({ collection }) {
       <h1>
         <span>{title.toUpperCase()}</span>
       </h1>
-      <div className="fixmargin d-flex flex-wrap justify-content-sm-center justify-content-md-start ">
+      <div className="d-flex flex-wrap justify-content-center ">
         {items.map((item) => (
           <CardPreview key={item.id} item={item} />
         ))}
