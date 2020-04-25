@@ -20,7 +20,18 @@
       opacity: 0.8;
     }
   }
-
+  .user-img {
+    height: 30px;
+    width: 30px;
+    background-size: cover;
+    overflow-x: hidden;
+    border-radius: 50%;
+    color: $color1;
+    padding-left: 3px;
+    padding-top: 4px;
+    background-color: black;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.404);
+  }
   .cart-icon {
     z-index: 2;
     width: 2em;

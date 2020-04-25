@@ -13,6 +13,7 @@ import NavbarItem from "./navbarItem";
 import ToogleButton from "./toogleButton";
 
 import "./navbar.scss";
+import UserImg from "./userImg";
 
 const NavBar = ({ currentUser, location, hidden, toggleCartHidden }) => {
   let locationName = location.pathname;
@@ -31,6 +32,7 @@ const NavBar = ({ currentUser, location, hidden, toggleCartHidden }) => {
             <NavbarItem content="HOME" to="/" />
             <NavbarItem content="SHOP" to="/shop" />
             <NavbarItem content="CONTACT" to="/contact" />
+
             {currentUser ? (
               <NavbarItem>
                 <a className="nav-link" onClick={() => auth.signOut()} href="/">
@@ -40,6 +42,13 @@ const NavBar = ({ currentUser, location, hidden, toggleCartHidden }) => {
             ) : (
               <NavbarItem content="SIGN IN" to="/sign" />
             )}
+            {currentUser ? (
+              <UserImg
+                displayName={currentUser.displayName}
+                photoURL={currentUser.photoURL}
+              />
+            ) : null}
+
             <NavbarItem>
               <button
                 type="button"
