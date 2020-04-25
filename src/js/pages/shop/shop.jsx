@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import { updateCollections } from "../../../redux/shop/shopActions";
 import {
-  firestore,
+  db,
   convertCollectionsSnapshotToMap,
 } from "../../../firebase/firebase";
 
@@ -20,7 +20,7 @@ function Shop({ match, updateCollections }) {
 
   const unsubscribeFromSnapshot = null;
   useEffect(() => {
-    const collectionRef = firestore.collection("collections");
+    const collectionRef = db.collection("collections");
     collectionRef.onSnapshot(async (snapShot) => {
       const collectionsMap = convertCollectionsSnapshotToMap(snapShot);
       updateCollections(collectionsMap);

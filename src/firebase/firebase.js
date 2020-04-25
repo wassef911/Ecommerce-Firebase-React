@@ -16,7 +16,7 @@ firebase.initializeApp(firebaseConfig);
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return null;
-  const userRef = firestore.doc(`users/${userAuth.uid}`);
+  const userRef = db.doc(`users/${userAuth.uid}`);
 
   const snapShot = await userRef.get();
 
@@ -37,13 +37,23 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   }
   return userRef;
 };
+export const createIssueDocuments = async (Message) => {
+  if (!Message) return null;
+  try {
+    await db.doc("issues").set({
+      Message,
+    });
+  } catch (err) {
+    console.error(err);
+  }
+};
 
 export const addCollectionAndDocuments = async (
   collectionKey,
   objectsToAdd
 ) => {
-  const collectionRef = firestore.collection(collectionKey);
-  const batch = firestore.batch();
+  const collectionRef = db.collection(collectionKey);
+  const batch = db.batch();
   objectsToAdd.forEach((obj) => {
     const newDocRef = collectionRef.doc();
     batch.set(newDocRef, obj);
@@ -69,7 +79,7 @@ export const convertCollectionsSnapshotToMap = (collections) => {
 
 export const auth = firebase.auth();
 
-export const firestore = firebase.firestore();
+export const db = firebase.firestore();
 
 const provider = new firebase.auth.GoogleAuthProvider();
 

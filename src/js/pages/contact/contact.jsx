@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
+
+import { createIssueDocuments } from "../../../firebase/firebase";
 
 import TextInput from "../../components/textInput";
 
 import "./contact.scss";
 function Contact() {
+  const [Msg, setMsg] = useState("");
+  const handleSubmit = () => {
+    createIssueDocuments(Msg);
+  };
   return (
     <div className="d-flex justify-content-center  m-4">
-      <form className="contact d-flex flex-column justify-content-center">
+      <form
+        onSubmit={() => handleSubmit()}
+        className="contact d-flex flex-column justify-content-center"
+      >
         <TextInput title="Your Email">
           <input
             type="text"
@@ -29,7 +38,10 @@ function Contact() {
           <div class="input-group-prepend">
             <span class="input-group-text">Your message </span>
           </div>
-          <textarea class="form-control"></textarea>
+          <textarea
+            class="form-control"
+            onChange={(e) => setMsg(e.target.value)}
+          ></textarea>
         </div>
         <button
           type="submit"
