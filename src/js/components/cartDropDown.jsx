@@ -16,7 +16,6 @@ function CartDropDown({ cartItems, history, toggleCartHidden }) {
       role="dialog"
       aria-labelledby="exampleModalScrollableTitle"
       aria-hidden="true"
-      onClick={toggleCartHidden}
     >
       <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">

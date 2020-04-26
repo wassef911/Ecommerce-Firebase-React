@@ -16,7 +16,7 @@ import Checkout from "./js/pages/checkout/checkout";
 import "./app.scss";
 import Contact from "./js/pages/contact/contact";
 
-function App({ setCurrentUser, currentUser, collectionsArray }) {
+function App({ setCurrentUser, currentUser }) {
   let unsubscribeFromAuth = null;
   useEffect(() => {
     unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {

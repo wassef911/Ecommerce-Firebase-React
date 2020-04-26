@@ -52,23 +52,20 @@ $color3: #fff4e3;
     content: "";
     position: absolute;
     background: linear-gradient(
-      45deg,
-      #fb009480,
-      #0000ff80,
-      #00ff0080,
+      60deg,
       #ffff0080,
+      #ff7b0080,
       #ff000080,
-      #fb009480,
-      #0000ff80,
-      #00ff0080,
+      #00a2ff80,
       #ffff0080,
+      #ff7b0080,
       #ff000080
     );
     background-size: 1200%;
     width: calc(100% + 4px);
     height: calc(100% + 4px);
     z-index: -200;
-    animation: steam 40s ease-in-out infinite;
+    animation: steam 30s ease-in-out infinite;
   }
 
   @keyframes steam {
