@@ -21,7 +21,7 @@ function Shop({ match, updateCollections }) {
   const unsubscribeFromSnapshot = null;
   useEffect(() => {
     const collectionRef = db.collection("collections");
-    collectionRef.onSnapshot(async (snapShot) => {
+    collectionRef.get().then((snapShot) => {
       const collectionsMap = convertCollectionsSnapshotToMap(snapShot);
       updateCollections(collectionsMap);
       setloading(false);
