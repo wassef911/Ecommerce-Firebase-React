@@ -16,9 +16,16 @@ import "./navbar.scss";
 import UserImg from "./userImg";
 
 const NavBar = ({ currentUser, location, hidden, toggleCartHidden }) => {
-  let locationName = location.pathname;
-  if (locationName === "/") locationName = "home";
-  document.title = locationName.split("/").join(" ").toUpperCase();
+  const properDocTitle = (location) => {
+    let pathName = location;
+    if (pathName === "/") pathName = "home";
+
+    let locationName = pathName.split("/").join(" ");
+    locationName = locationName.split(" ");
+
+    return locationName[locationName.length - 1].toUpperCase();
+  };
+  document.title = properDocTitle(location.pathname);
   return (
     <>
       <nav className="mb-1 navBar navbar navbar-expand-lg navbar-light bg-light sticky-top">
