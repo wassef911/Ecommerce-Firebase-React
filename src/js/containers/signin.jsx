@@ -16,7 +16,7 @@ function SignIn() {
   };
 
   return (
-    <div className="signin mb-1">
+    <div className="signin animated slideInDown fast">
       <h1>
         <span>I already have an account</span>
       </h1>

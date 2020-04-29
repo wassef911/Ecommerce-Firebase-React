@@ -34,7 +34,7 @@ function SignUp() {
     }
   };
   return (
-    <div className="signup">
+    <div className="signup animated slideInDown fast">
       <h1>
         <span>I don't have an account</span>
       </h1>

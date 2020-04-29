@@ -24,5 +24,12 @@ html {
     &::-webkit-scrollbar-thumb {
       background-color: $color1;
     }
+    & .particles {
+      position: absolute;
+      z-index: -200;
+      height: 100%;
+      width: 100%;
+      opacity: (0.2);
+    }
   }
 }

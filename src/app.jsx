@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import Particles from "react-particles-js";
 
 import { auth, createUserProfileDocument } from "./firebase/firebase";
 import { setCurrentUser } from "./redux/user/userActions";
@@ -35,9 +36,10 @@ function App({ setCurrentUser, currentUser }) {
       unsubscribeFromAuth();
     };
   }, []);
-
+  const params = require("./assets/particles.json");
   return (
     <>
+      <Particles className="particles" params={params} />
       <NavBar />
       <Switch>
         <Route exact path="/" component={Homepage} />
@@ -48,11 +50,7 @@ function App({ setCurrentUser, currentUser }) {
           render={() => (currentUser ? <Redirect to="/" /> : <Sign />)}
         />
         <Route exact path="/contact" component={Contact} />
-        <Route
-          exact
-          path="/checkout"
-          render={() => (currentUser ? <Checkout /> : <Redirect to="/" />)}
-        />
+        <Route path="/checkout" component={Checkout} />
       </Switch>
     </>
   );

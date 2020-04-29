@@ -2,4 +2,16 @@
 .contact {
   @include edgedContainer(4em, 2em, 4em);
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.486);
+  & .logo {
+    color: $color1;
+    font-family: $logofont;
+    font-size: 4em;
+    text-align: center;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.238);
+    &:hover {
+      text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.315);
+      transition: all 400ms ease-in-out;
+      cursor: default;
+    }
+  }
 }
