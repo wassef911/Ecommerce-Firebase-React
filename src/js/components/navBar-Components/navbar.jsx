@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
-import { auth } from "../../firebase/firebase";
+import { auth } from "../../../firebase/firebase";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { ToastContainer, toast, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { selectCurrentUser } from "../../redux/user/userSelector";
-import { selectHidden } from "../../redux/cart/cartSelector";
-import { toggleCartHidden } from "../../redux/cart/cartAction";
+import { selectCurrentUser } from "../../../redux/user/userSelector";
+import { selectHidden } from "../../../redux/cart/cartSelector";
+import { toggleCartHidden } from "../../../redux/cart/cartAction";
 
 import CartIcon from "./cart-icon";
 import CartDropDown from "./cartDropDown";

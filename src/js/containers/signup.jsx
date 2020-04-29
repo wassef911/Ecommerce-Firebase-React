@@ -30,11 +30,11 @@ function SignUp() {
         confirmPassword: "",
       });
     } catch (err) {
-      console.log("signup .js", err);
+      console.error("signup.js", err);
     }
   };
   return (
-    <div className="signup animated slideInDown fast">
+    <div className="signup animated slideInRight fast">
       <h1>
         <span>I don't have an account</span>
       </h1>

@@ -8,7 +8,7 @@ import { auth, createUserProfileDocument } from "./firebase/firebase";
 import { setCurrentUser } from "./redux/user/userActions";
 import { selectCurrentUser } from "./redux/user/userSelector";
 
-import NavBar from "./js/components/navbar";
+import NavBar from "./js/components/navBar-Components/navbar";
 import Homepage from "./js/pages/homepage/homepage";
 import Shop from "./js/pages/shop/shop";
 import Sign from "./js/pages/sign/sign";

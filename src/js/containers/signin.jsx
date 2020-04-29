@@ -1,5 +1,9 @@
 import React, { useState } from "react";
+
 import { signInWithGoogle, auth } from "../../firebase/firebase";
+
+import TextInput from "../components/textInput";
+
 function SignIn() {
   const [User, setUser] = useState({ email: "", password: "" });
 
@@ -16,40 +20,34 @@ function SignIn() {
   };
 
   return (
-    <div className="signin animated slideInDown fast">
+    <div className="signin animated slideInLeft fast">
       <h1>
         <span>I already have an account</span>
       </h1>
       <h3>Sign in with your email and password.</h3>
       <form onSubmit={handleSubmit}>
-        <div className="input-group my-4">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Email
-            </span>
-          </div>
+        <TextInput title="Email">
           <input
-            type="mail"
-            onChange={(e) => setUser({ ...User, email: e.target.value })}
+            type="text"
             className="form-control"
             placeholder="name@stuff.com"
             aria-describedby="basic-addon1"
+            value={User.displayName}
+            onChange={(e) => setUser({ ...User, displayName: e.target.value })}
           ></input>
-        </div>
-        <div className="input-group my-4">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Password
-            </span>
-          </div>
+        </TextInput>
+
+        <TextInput title="Password">
           <input
-            type="password"
-            onChange={(e) => setUser({ ...User, password: e.target.value })}
+            type="text"
             className="form-control"
-            placeholder="*********"
+            placeholder="************"
             aria-describedby="basic-addon1"
+            value={User.displayName}
+            onChange={(e) => setUser({ ...User, password: e.target.value })}
           ></input>
-        </div>
+        </TextInput>
+
         <div className="d-flex justify-content-between">
           <button
             type="submit"

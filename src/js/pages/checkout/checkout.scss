@@ -21,7 +21,7 @@
   color: white;
   cursor: default;
   font-family: $slimfont;
-
+  z-index: 2;
   & .item {
     border: 5px solid white;
     border-top: unset;

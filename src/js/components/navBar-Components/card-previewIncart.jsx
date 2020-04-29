@@ -1,5 +1,5 @@
 import React from "react";
-import "./smallCardPreview.scss";
+import "../smallCardPreview.scss";
 function SmallCardPreview({ item }) {
   const { name, imageUrl, price, quantity } = item;
   return (

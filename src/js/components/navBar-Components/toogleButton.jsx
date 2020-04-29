@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as Toggler } from "../../assets/open-menu.svg";
+import { ReactComponent as Toggler } from "../../../assets/open-menu.svg";
 
 function ToogleButton() {
   return (

@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
 import SmallCardPreview from "./card-previewIncart";
-import { toggleCartHidden } from "../../redux/cart/cartAction";
-import { selectCartItems } from "../../redux/cart/cartSelector";
+import { toggleCartHidden } from "../../../redux/cart/cartAction";
+import { selectCartItems } from "../../../redux/cart/cartSelector";
 
 function CartDropDown({ cartItems, history, toggleCartHidden }) {
   return (
