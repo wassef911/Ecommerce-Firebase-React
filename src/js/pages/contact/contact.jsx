@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import { db } from "../../../firebase/firebase";
-
 import TextInput from "../../components/textInput";
 
 import "./contact.scss";
@@ -13,9 +11,10 @@ function Contact() {
   });
 
   return (
-    <div className="d-flex justify-content-center ">
+    <div className="d-flex justify-content-center animated slideInDown fast ">
       <div className="contact d-flex flex-column justify-content-center m-4">
-        <TextInput title="Your Email">
+        <h3 className="logo">Cloth Store</h3>
+        <TextInput title="Email">
           <input
             type="text"
             className="form-control"
@@ -25,7 +24,7 @@ function Contact() {
           ></input>
         </TextInput>
 
-        <TextInput title="Your Name">
+        <TextInput title="Name">
           <input
             type="text"
             className="form-control"
