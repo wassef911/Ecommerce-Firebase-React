@@ -2,7 +2,9 @@
 
 .SectionPreview {
   span {
-    padding-left: 1.5%;
+    padding-left: 3%;
+    margin: 2.5%;
+
     font-size: 1.2em;
     &:hover {
       @include hovereffect($color1, $color3, $color3);
@@ -13,10 +15,6 @@
   }
   font-family: $fatfont;
   color: $color1;
-  padding: 1%;
-  .fixmargin {
-    margin-left: 11%;
-  }
   .card-image {
     height: 18em;
     width: 18em;
