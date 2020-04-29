@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import { ToastProvider } from "react-toast-notifications";
 import Particles from "react-particles-js";
 
 import { auth, createUserProfileDocument } from "./firebase/firebase";
@@ -13,9 +14,9 @@ import Homepage from "./js/pages/homepage/homepage";
 import Shop from "./js/pages/shop/shop";
 import Sign from "./js/pages/sign/sign";
 import Checkout from "./js/pages/checkout/checkout";
+import Contact from "./js/pages/contact/contact";
 
 import "./app.scss";
-import Contact from "./js/pages/contact/contact";
 
 function App({ setCurrentUser, currentUser }) {
   let unsubscribeFromAuth = null;
@@ -40,7 +41,9 @@ function App({ setCurrentUser, currentUser }) {
   return (
     <>
       <Particles className="particles" params={params} />
-      <NavBar />
+      <ToastProvider placement="top-left" transitionDuration="350">
+        <NavBar />
+      </ToastProvider>
       <Switch>
         <Route exact path="/" component={Homepage} />
         <Route path="/shop" component={Shop} />

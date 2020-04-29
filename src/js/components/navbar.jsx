@@ -2,6 +2,7 @@ import React from "react";
 import { auth } from "../../firebase/firebase";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
+import { useToasts } from "react-toast-notifications";
 
 import { selectCurrentUser } from "../../redux/user/userSelector";
 import { selectHidden } from "../../redux/cart/cartSelector";
@@ -26,11 +27,21 @@ const NavBar = ({ currentUser, location, hidden, toggleCartHidden }) => {
     return locationName[locationName.length - 1].toUpperCase();
   };
   document.title = properDocTitle(location.pathname);
+  const { addToast } = useToasts();
+
+  const ToastMyInfo = () => {
+    addToast("© 2020 : Wassef Ben Ahmed", {
+      autoDismiss: true,
+      appearance: "warning",
+    });
+  };
   return (
     <>
       <nav className="mb-1 navBar navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <Link className="navbar-brand p-0" to="/">
-          <h3 className=" logo">Cloth Store</h3>
+          <h3 className="logo" onMouseOver={() => ToastMyInfo()}>
+            Cloth Store
+          </h3>
         </Link>
 
         <ToogleButton />
