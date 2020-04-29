@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import { ToastProvider } from "react-toast-notifications";
 import Particles from "react-particles-js";
 
 import { auth, createUserProfileDocument } from "./firebase/firebase";
@@ -40,10 +39,8 @@ function App({ setCurrentUser, currentUser }) {
   const params = require("./assets/particles.json");
   return (
     <>
-      <Particles className="particles" params={params} />
-      <ToastProvider placement="top-left" transitionDuration="350">
-        <NavBar />
-      </ToastProvider>
+      <Particles className="sticky-top particles " params={params} />
+      <NavBar />
       <Switch>
         <Route exact path="/" component={Homepage} />
         <Route path="/shop" component={Shop} />
