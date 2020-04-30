@@ -1,0 +1,24 @@
+@import "../../../variables";
+
+.sign {
+  padding: 1em;
+  h1 {
+    border-top: 7px solid rgba(255, 255, 255, 0);
+    & span:hover {
+      @include hovereffect($color2, $color0, rgba(255, 255, 255, 0));
+      transition: all 400ms ease-in-out;
+    }
+  }
+  h3 {
+    color: $color0;
+    font-family: $slimfont;
+    font-size: 130%;
+  }
+  & .signin {
+    @include edgedContainer(0, 0, 4em, 0);
+  }
+
+  & .signup {
+    @include edgedContainer(0, 0, 0, 4em);
+  }
+}
