@@ -1,4 +1,4 @@
-![Screenshot]()
+![Screenshot](https://github.com/wassef911/Cloth-Store/blob/master/src/assets/Screenshot.png?raw=true)
 
 ## For eslint settings and dev dependencies run :
 
