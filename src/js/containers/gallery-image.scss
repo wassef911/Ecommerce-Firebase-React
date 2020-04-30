@@ -1,7 +1,5 @@
 @import "../../variables";
-* {
-  transition: all 550ms ease-in-out;
-}
+
 #ImageGallery {
   & .GalleryImage {
     text-align: center;
@@ -9,10 +7,12 @@
     transition: transform 0.5s;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.541);
     &:hover {
+      transition: all 550ms ease-in-out;
       transform: scale(1.06);
       transition-timing-function: ease-out;
       & .sectiontitle {
-        background-color: #ffcdab69;
+        background: radial-gradient(ellipse at top, $color3, transparent),
+          radial-gradient(ellipse at bottom, #f8f8f800, transparent);
       }
     }
 
@@ -31,10 +31,10 @@
       width: 16em;
       color: black;
       box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.185);
-      background-color: #ffcdabb6;
+      background: radial-gradient(ellipse at top, $color2, transparent),
+        radial-gradient(ellipse at bottom, #f8f8f800, transparent);
       &:hover {
         cursor: pointer;
-        background-color: #ffcdab;
         transition: all 250ms ease-in-out;
         transform: scale(1.1);
       }
