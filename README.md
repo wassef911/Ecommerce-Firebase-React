@@ -1,4 +1,4 @@
-![Screenshot](https://github.com/wassef911/Cloth-Store/blob/master/src/assets/Screenshot.png?raw=true)
+![Screenshot](https://github.com/wassef911/Cloth-Store/blob/master/Screenshot.png?raw=true)
 
 ### `npm install`
 For dependencies and eslint <br />
