@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { fetchCollectionsStartAsync } from "../../../redux/shop/shopActions";
+import { fetchCollectionsStart } from "../../../redux/shop/shopActions";
 
 import CollectionOverviewContainer from "../../containers/HOC/collectionsOverview-Container";
 import CollectionPageContainer from "../../containers/HOC/collection-Container";
 
-function Shop({ match, fetchCollectionsStartAsync }) {
+function Shop({ match, fetchCollectionsStart }) {
   useEffect(() => {
-    fetchCollectionsStartAsync();
+    fetchCollectionsStart();
   }, []);
   return (
     <div id="scrollBarStyle">
@@ -23,13 +23,12 @@ function Shop({ match, fetchCollectionsStartAsync }) {
         path={`${match.path}/:collectionId`}
         component={CollectionPageContainer}
       />
-      )} />
     </div>
   );
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchCollectionsStartAsync: () => dispatch(fetchCollectionsStartAsync()),
+  fetchCollectionsStart: () => dispatch(fetchCollectionsStart()),
 });
 
 export default connect(null, mapDispatchToProps)(Shop);
