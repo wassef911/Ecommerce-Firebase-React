@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 
-import { signInWithGoogle, auth } from "../../firebase/firebase";
+import { auth } from "../../firebase/firebase";
+import { googleSigninStart } from "../../redux/user/userActions";
 
 import TextInput from "../components/textInput";
 
-function SignIn() {
+function SignIn({ googleSignInStart }) {
   const [User, setUser] = useState({ email: "", password: "" });
 
   const handleSubmit = async (event) => {
@@ -57,9 +59,9 @@ function SignIn() {
           </button>
           <br />
           <button
-            type="submit"
+            type="button"
             className="btn btn-block ml-1 btn-primary rounded-0"
-            onClick={signInWithGoogle}
+            onClick={googleSignInStart}
           >
             SIGN IN WITH GOOGLE
           </button>
@@ -69,4 +71,8 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+const mapDisptachToProps = (dispatch) => ({
+  googleSignInStart: () => dispatch(googleSigninStart()),
+});
+
+export default connect(null, mapDisptachToProps)(SignIn);

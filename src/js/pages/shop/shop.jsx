@@ -7,9 +7,9 @@ import { fetchCollectionsStart } from "../../../redux/shop/shopActions";
 import CollectionOverviewContainer from "../../containers/HOC/collectionsOverview-Container";
 import CollectionPageContainer from "../../containers/HOC/collection-Container";
 
-function Shop({ match, fetchCollectionsStart }) {
+function Shop({ match, fetchCollections }) {
   useEffect(() => {
-    fetchCollectionsStart();
+    fetchCollections();
   }, []);
   return (
     <div id="scrollBarStyle">
@@ -28,7 +28,7 @@ function Shop({ match, fetchCollectionsStart }) {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchCollectionsStart: () => dispatch(fetchCollectionsStart()),
+  fetchCollections: () => dispatch(fetchCollectionsStart()),
 });
 
 export default connect(null, mapDispatchToProps)(Shop);

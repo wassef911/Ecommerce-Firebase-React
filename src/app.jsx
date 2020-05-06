@@ -18,6 +18,7 @@ import Contact from "./js/pages/contact/contact";
 import "./app.scss";
 
 function App({ setCurrentUser, currentUser }) {
+  /*
   let unsubscribeFromAuth = null;
   useEffect(() => {
     unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
@@ -36,6 +37,7 @@ function App({ setCurrentUser, currentUser }) {
       unsubscribeFromAuth();
     };
   }, []);
+ */
   const params = require("./assets/particles.json");
   return (
     <>

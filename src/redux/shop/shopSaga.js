@@ -2,7 +2,7 @@ import { takeLatest, put, call } from "redux-saga/effects";
 
 import { db, convertCollectionsSnapshotToMap } from "../../firebase/firebase";
 
-import ShopActionTypes from "./shopTypes";
+import shopActionTypes from "./shopType";
 
 import {
   fetchCollectionsSuccess,
@@ -22,7 +22,7 @@ export function* fetchCollectionsStartAsync() {
 
 export function* fetchCollectionsStart() {
   yield takeLatest(
-    ShopActionTypes.FETCH_COLLECTIONS_START,
+    shopActionTypes.FETCH_COLLECTIONS_START,
     fetchCollectionsStartAsync
   );
 }
