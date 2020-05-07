@@ -12,15 +12,13 @@ const userReducer = (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
       };
-    case userActionTypes.GOOGLE_SIGN_IN_SUCCESS:
-    case userActionTypes.EMAIL_SIGN_IN_SUCCESS:
+    case userActionTypes.SIGN_IN_SUCCESS:
       return {
         ...state,
         currentUser: payload,
         err: null,
       };
-    case userActionTypes.GOOGLE_SIGN_IN_FAILURE:
-    case userActionTypes.EMAIL_SIGN_IN_FAILURE:
+    case userActionTypes.SIGN_IN_FAILURE:
       return {
         ...state,
         err: payload,

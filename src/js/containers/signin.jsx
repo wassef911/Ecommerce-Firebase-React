@@ -8,27 +8,27 @@ import {
 
 import TextInput from "../components/textInput";
 
-function SignIn({ googleSignInStart, EmailSigninStart }) {
+function SignIn({ googleSignInStart, emailSigninStart }) {
   const [User, setUser] = useState({ email: "", password: "" });
-  const handleSubmit = async () => {
-    EmailSigninStart(User);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    emailSigninStart(User);
   };
-
   return (
     <div className="signin animated slideInLeft fast">
       <h1>
         <span>I already have an account</span>
       </h1>
       <h3>Sign in with your email and password.</h3>
-      <form onSubmit={() => handleSubmit()}>
+      <form onSubmit={handleSubmit}>
         <TextInput title="Email">
           <input
             type="text"
             className="form-control"
             placeholder="name@stuff.com"
             aria-describedby="basic-addon1"
-            value={User.displayName}
-            onChange={(e) => setUser({ ...User, displayName: e.target.value })}
+            value={User.email}
+            onChange={(e) => setUser({ ...User, email: e.target.value })}
           ></input>
         </TextInput>
 
@@ -66,7 +66,7 @@ function SignIn({ googleSignInStart, EmailSigninStart }) {
 
 const mapDisptachToProps = (dispatch) => ({
   googleSignInStart: () => dispatch(googleSigninStart()),
-  EmailSigninStart: (EmailAndPassword) =>
+  emailSigninStart: (EmailAndPassword) =>
     dispatch(EmailSigninStart(EmailAndPassword)),
 });
 

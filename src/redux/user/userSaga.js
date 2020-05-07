@@ -7,46 +7,40 @@ import {
 } from "../../firebase/firebase";
 
 import userActionTypes from "./userType";
-import {
-  googleSigninSuccess,
-  googleSigninFailure,
-  EmailSigninSuccess,
-  EmailSigninFailure,
-} from "./userActions";
+import { SigninSuccess, SigninFailure } from "./userActions";
 
+export function* getUserSnapshot(userAuth) {
+  try {
+    const userRef = yield call(createUserProfileDocument, userAuth);
+    const userSnapshot = yield userRef.get();
+    yield put(SigninSuccess({ id: userSnapshot.id, ...userSnapshot.data() }));
+  } catch (err) {
+    yield put(SigninFailure(err));
+  }
+}
 export function* signInWithGoogle() {
   try {
     const { user } = yield auth.signInWithPopup(googleProvider);
-    const userRef = yield call(createUserProfileDocument, user);
-    const userSnapshot = yield userRef.get();
-    yield put(
-      googleSigninSuccess({ id: userSnapshot.id, ...userSnapshot.data() })
-    );
+    yield getUserSnapshot(user);
   } catch (err) {
-    yield put(googleSigninFailure(err));
+    yield put(SigninFailure(err));
   }
+}
+export function* signInWithEmail({ paylaod: { email, password } }) {
+  try {
+    const { user } = yield auth.signInWithEmailAndPassword(email, password);
+    yield getUserSnapshot(user);
+  } catch (err) {
+    console.log(err.message);
+    yield put(SigninFailure(err.message));
+  }
+}
+
+export function* onEmailSignInStart() {
+  yield takeLatest(userActionTypes.EMAIL_SIGN_IN_START, signInWithEmail);
 }
 export function* onGoogleSignInStart() {
   yield takeLatest(userActionTypes.GOOGLE_SIGN_IN_START, signInWithGoogle);
-}
-
-export function* signInWithEmail({ payload: { email, password } }) {
-  try {
-    const { user } = yield auth.signInWithEmailAndPassword(
-      email.trim(),
-      password
-    );
-    const userRef = yield call(createUserProfileDocument, user);
-    const userSnapshot = yield userRef.get();
-    yield put(
-      EmailSigninSuccess({ id: userSnapshot.id, ...userSnapshot.data() })
-    );
-  } catch (err) {
-    yield put(EmailSigninFailure(err));
-  }
-}
-export function* onEmailSignInStart() {
-  yield takeLatest(userActionTypes.GOOGLE_SIGN_IN_START, signInWithEmail);
 }
 
 export default function* userSagas() {

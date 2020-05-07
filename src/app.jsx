@@ -4,8 +4,6 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import Particles from "react-particles-js";
 
-import { auth, createUserProfileDocument } from "./firebase/firebase";
-import { setCurrentUser } from "./redux/user/userActions";
 import { selectCurrentUser } from "./redux/user/userSelector";
 
 import NavBar from "./js/components/navBar-Components/navbar";
@@ -17,27 +15,7 @@ import Contact from "./js/pages/contact/contact";
 
 import "./app.scss";
 
-function App({ setCurrentUser, currentUser }) {
-  /*
-  let unsubscribeFromAuth = null;
-  useEffect(() => {
-    unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
-        userRef.onSnapshot((snapShot) => {
-          setCurrentUser({
-            id: snapShot.id,
-            ...snapShot.data(),
-          });
-        });
-      }
-      setCurrentUser(userAuth);
-    });
-    return () => {
-      unsubscribeFromAuth();
-    };
-  }, []);
- */
+function App({ currentUser }) {
   const params = require("./assets/particles.json");
   return (
     <>
@@ -62,8 +40,4 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
