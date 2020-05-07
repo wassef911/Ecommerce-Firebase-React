@@ -1,24 +1,17 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import { auth } from "../../firebase/firebase";
-import { googleSigninStart } from "../../redux/user/userActions";
+import {
+  googleSigninStart,
+  EmailSigninStart,
+} from "../../redux/user/userActions";
 
 import TextInput from "../components/textInput";
 
-function SignIn({ googleSignInStart }) {
+function SignIn({ googleSignInStart, EmailSigninStart }) {
   const [User, setUser] = useState({ email: "", password: "" });
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    const { email, password } = User;
-    try {
-      await auth.signInWithEmailAndPassword(email.trim(), password);
-      setUser({ email: "", password: "" });
-      console.log(User);
-    } catch (err) {
-      console.log("signin .js", err);
-    }
+  const handleSubmit = async () => {
+    EmailSigninStart(User);
   };
 
   return (
@@ -27,7 +20,7 @@ function SignIn({ googleSignInStart }) {
         <span>I already have an account</span>
       </h1>
       <h3>Sign in with your email and password.</h3>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={() => handleSubmit()}>
         <TextInput title="Email">
           <input
             type="text"
@@ -41,11 +34,11 @@ function SignIn({ googleSignInStart }) {
 
         <TextInput title="Password">
           <input
-            type="text"
+            type="password"
             className="form-control"
             placeholder="************"
             aria-describedby="basic-addon1"
-            value={User.displayName}
+            value={User.password}
             onChange={(e) => setUser({ ...User, password: e.target.value })}
           ></input>
         </TextInput>
@@ -61,7 +54,7 @@ function SignIn({ googleSignInStart }) {
           <button
             type="button"
             className="btn btn-block ml-1 btn-primary rounded-0"
-            onClick={googleSignInStart}
+            onClick={() => googleSignInStart()}
           >
             SIGN IN WITH GOOGLE
           </button>
@@ -73,6 +66,8 @@ function SignIn({ googleSignInStart }) {
 
 const mapDisptachToProps = (dispatch) => ({
   googleSignInStart: () => dispatch(googleSigninStart()),
+  EmailSigninStart: (EmailAndPassword) =>
+    dispatch(EmailSigninStart(EmailAndPassword)),
 });
 
 export default connect(null, mapDisptachToProps)(SignIn);

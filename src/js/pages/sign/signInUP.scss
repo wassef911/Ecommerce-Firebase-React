@@ -3,9 +3,8 @@
 .sign {
   padding: 1em;
   h1 {
-    border-top: 7px solid rgba(255, 255, 255, 0);
     & span:hover {
-      @include hovereffect($color2, $color0, rgba(255, 255, 255, 0));
+      @include hovereffect($color2, $color0);
       transition: all 400ms ease-in-out;
     }
   }

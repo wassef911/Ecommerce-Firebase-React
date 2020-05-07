@@ -16,11 +16,10 @@ $color1: #fd9845;
 $color2: #ffcdab;
 $color3: #fff4e3;
 
-@mixin hovereffect($bg, $col, $br) {
+@mixin hovereffect($bg, $col) {
   background-color: $bg;
   color: $col;
   cursor: default;
-  border-top: 7px solid $br;
 }
 
 @mixin edgedContainer(
