@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { auth } from "../../../firebase/firebase";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { ToastContainer, toast, Slide } from "react-toastify";

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import { auth, createUserProfileDocument } from "../../firebase/firebase";
+import { signUpStart } from "../../redux/user/userActions";
 import TextInput from "../components/textInput";
 
-function SignUp() {
+function SignUp({ signUpStart }) {
   const [User, setUser] = useState({
     displayName: "",
     email: "",
@@ -12,26 +14,7 @@ function SignUp() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const { displayName, email, password, confirmPassword } = User;
-    if (password !== confirmPassword) {
-      alert("passwords don't match ! ");
-      return;
-    }
-    try {
-      const { user } = await auth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
-      await createUserProfileDocument(user, { displayName });
-      setUser({
-        displayName: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-      });
-    } catch (err) {
-      console.error("signup.js", err);
-    }
+    signUpStart(User);
   };
   return (
     <div className="signup animated slideInRight fast">
@@ -93,5 +76,8 @@ function SignUp() {
     </div>
   );
 }
+const mapDispatchToProps = (dispatch) => ({
+  signUpStart: (User) => dispatch(signUpStart(User)),
+});
 
-export default SignUp;
+export default connect(null, mapDispatchToProps)(SignUp);

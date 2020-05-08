@@ -23,16 +23,17 @@
   .user-img {
     height: 30px;
     width: 30px;
-    background-size: cover;
-    overflow: hidden;
     border-radius: 50%;
-    cursor: default;
-    color: $color1;
-    font-family: $slimfont;
-    padding-top: 3px;
+    overflow: hidden;
+    background-size: cover;
+    font-family: $logofont;
     font-size: 120%;
-    background-color: black;
+    background-color: $color1;
+    cursor: default;
+    color: white;
+    padding-top: 2px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.404);
+    text-align: center;
   }
   .cart-icon {
     z-index: 2;

@@ -31,3 +31,12 @@ export const signOutFailure = (err) => ({
   type: userActionTypes.SIGN_OUT_FAILURE,
   payload: err,
 });
+
+export const signUpStart = (LoginInfo) => ({
+  type: userActionTypes.SIGN_UP_START,
+  payload: LoginInfo,
+});
+export const signUpFailure = (err) => ({
+  type: userActionTypes.SIGN_UP_FAILURE,
+  payload: err,
+});
