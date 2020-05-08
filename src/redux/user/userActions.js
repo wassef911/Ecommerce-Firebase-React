@@ -1,5 +1,9 @@
 import userActionTypes from "./userType";
 
+export const checkUserSession = () => ({
+  type: userActionTypes.CHECK_USER_SESSION,
+});
+
 export const googleSigninStart = () => ({
   type: userActionTypes.GOOGLE_SIGN_IN_START,
 });
@@ -17,6 +21,13 @@ export const SigninFailure = (err) => ({
   payload: err,
 });
 
-export const checkUserSession = () => ({
-  type: userActionTypes.CHECK_USER_SESSION,
+export const signOutStart = () => ({
+  type: userActionTypes.SIGN_OUT_START,
+});
+export const signOutSuccess = () => ({
+  type: userActionTypes.SIGN_OUT_SUCCESS,
+});
+export const signOutFailure = (err) => ({
+  type: userActionTypes.SIGN_OUT_FAILURE,
+  payload: err,
 });

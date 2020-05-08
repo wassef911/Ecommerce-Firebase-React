@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { selectCurrentUser } from "../../../redux/user/userSelector";
 import { selectHidden } from "../../../redux/cart/cartSelector";
 import { toggleCartHidden } from "../../../redux/cart/cartAction";
+import { signOutStart } from "../../../redux/user/userActions";
 
 import CartIcon from "./cart-icon";
 import CartDropDown from "./cartDropDown";
@@ -17,7 +18,7 @@ import ToogleButton from "./toogleButton";
 import "./navbar.scss";
 import UserImg from "./userImg";
 
-const NavBar = ({ currentUser, location, hidden, toggleCartHidden }) => {
+const NavBar = ({ currentUser, location, toggleCartHidden, signOutStart }) => {
   const properDocTitle = (location) => {
     let pathName = location;
     if (pathName === "/") pathName = "home";
@@ -57,7 +58,7 @@ const NavBar = ({ currentUser, location, hidden, toggleCartHidden }) => {
 
             {currentUser ? (
               <NavbarItem>
-                <a className="nav-link" onClick={() => auth.signOut()} href="/">
+                <a className="nav-link" onClick={() => signOutStart()} href="/">
                   SIGN OUT
                 </a>
               </NavbarItem>
@@ -85,7 +86,7 @@ const NavBar = ({ currentUser, location, hidden, toggleCartHidden }) => {
           </ul>
         </div>
       </nav>
-      {hidden ? null : <CartDropDown />}
+      <CartDropDown />
       <div className="block"></div>
     </>
   );
@@ -93,10 +94,10 @@ const NavBar = ({ currentUser, location, hidden, toggleCartHidden }) => {
 
 const mapDispatchToProps = (dispatch) => ({
   toggleCartHidden: () => dispatch(toggleCartHidden()),
+  signOutStart: () => dispatch(signOutStart()),
 });
 
 const mapStateToProps = (state) => ({
   currentUser: selectCurrentUser(state),
-  hidden: selectHidden(state),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(NavBar));
