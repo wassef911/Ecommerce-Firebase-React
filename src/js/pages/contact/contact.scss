@@ -1,6 +1,6 @@
 @import "../../../variables";
 .contact {
-  @include edgedContainer(2em, 0, 2em, 0);
+  @include edgedContainer();
   & .logo {
     color: $color1;
     font-family: $logofont;

@@ -12,12 +12,13 @@
     color: $color0;
     font-family: $slimfont;
     font-size: 130%;
+    cursor: default;
   }
   & .signin {
-    @include edgedContainer(0, 0, 4em, 0);
+    @include edgedContainer();
   }
 
   & .signup {
-    @include edgedContainer(0, 0, 0, 4em);
+    @include edgedContainer();
   }
 }
