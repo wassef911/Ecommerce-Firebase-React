@@ -53,9 +53,9 @@ export function* isUserAuthenticated() {
 export function* signOut() {
   try {
     yield auth.signOut();
-    yield put(signOutSuccess);
+    yield put(signOutSuccess());
   } catch (err) {
-    put(signOutFailure);
+    put(signOutFailure());
   }
 }
 
