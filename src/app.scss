@@ -31,5 +31,11 @@ html {
       width: 100%;
       opacity: (0.3);
     }
+    .validation {
+      padding-top: 0.7em;
+      padding-left: 0.5em;
+      color: red;
+      cursor: default;
+    }
   }
 }

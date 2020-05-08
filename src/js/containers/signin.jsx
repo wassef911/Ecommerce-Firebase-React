@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { useForm } from "react-hook-form";
 
 import {
   googleSigninStart,
   EmailSigninStart,
 } from "../../redux/user/userActions";
+import validation from "../../form-validations";
 
 import TextInput from "../components/textInput";
+import FormError from "../components/formError";
 
 function SignIn({ googleSignInStart, emailSigninStart }) {
   const [User, setUser] = useState({ email: "", password: "" });
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+
+  const { register, handleSubmit, errors } = useForm();
+  const onSubmit = () => {
     emailSigninStart(User);
   };
   return (
@@ -20,9 +24,11 @@ function SignIn({ googleSignInStart, emailSigninStart }) {
         <span>I already have an account</span>
       </h1>
       <h3>Sign in with your email and password.</h3>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <TextInput title="Email">
           <input
+            name="Email"
+            ref={register(validation.Email)}
             type="text"
             className="form-control"
             placeholder="name@stuff.com"
@@ -30,10 +36,12 @@ function SignIn({ googleSignInStart, emailSigninStart }) {
             value={User.email}
             onChange={(e) => setUser({ ...User, email: e.target.value })}
           ></input>
+          {errors.Email && <FormError>* Email is invalid.</FormError>}
         </TextInput>
-
         <TextInput title="Password">
           <input
+            name="Password"
+            ref={register(validation.Password)}
             type="password"
             className="form-control"
             placeholder="************"
@@ -41,6 +49,7 @@ function SignIn({ googleSignInStart, emailSigninStart }) {
             value={User.password}
             onChange={(e) => setUser({ ...User, password: e.target.value })}
           ></input>
+          {errors.Password && <FormError> * Passworld is invalid.</FormError>}
         </TextInput>
 
         <div className="d-flex justify-content-between">

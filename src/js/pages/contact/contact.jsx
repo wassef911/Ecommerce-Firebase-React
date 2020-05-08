@@ -1,8 +1,13 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+
+import validation from "../../../form-validations";
 
 import TextInput from "../../components/textInput";
+import FormError from "../../components/formError";
 
 import "./contact.scss";
+
 function Contact() {
   const [Info, setInfo] = useState({
     name: "",
@@ -10,29 +15,38 @@ function Contact() {
     msg: "",
   });
 
+  const { register, handleSubmit, errors } = useForm();
+  const onSubmit = () => {};
+
   return (
-    <div className="animated flash faster">
+    <form className="animated flash faster" onSubmit={handleSubmit(onSubmit)}>
       <div className="d-flex justify-content-center animated slideInDown fast ">
         <div className="contact d-flex flex-column justify-content-center m-4">
           <h3 className="logo">Cloth Store</h3>
           <TextInput title="Email">
             <input
+              name="Email"
+              ref={register(validation.Email)}
               type="text"
               className="form-control"
               placeholder="name@stuff.com"
               aria-describedby="basic-addon1"
               onChange={(e) => setInfo({ ...Info, Email: e.target.value })}
             ></input>
+            {errors.Email && <FormError> * Email is invalid.</FormError>}
           </TextInput>
 
           <TextInput title="Name">
             <input
+              name="Name"
+              ref={register(validation.Name)}
               type="text"
               className="form-control"
-              placeholder="name@stuff.com"
+              placeholder="your name"
               aria-describedby="basic-addon1"
               onChange={(e) => setInfo({ ...Info, name: e.target.value })}
             ></input>
+            {errors.Name && <FormError> * Name is invalid.</FormError>}
           </TextInput>
 
           <div class="input-group my-4">
@@ -49,7 +63,7 @@ function Contact() {
           </button>
         </div>
       </div>
-    </div>
+    </form>
   );
 }
 

@@ -2,6 +2,7 @@
 
 .sign {
   padding: 1em;
+
   h1 {
     & span:hover {
       @include hovereffect($color2, $color0);
