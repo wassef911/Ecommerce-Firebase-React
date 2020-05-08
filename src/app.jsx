@@ -5,6 +5,7 @@ import { createStructuredSelector } from "reselect";
 import Particles from "react-particles-js";
 
 import { selectCurrentUser } from "./redux/user/userSelector";
+import { checkUserSession } from "./redux/user/userActions";
 
 import NavBar from "./js/components/navBar-Components/navbar";
 import Homepage from "./js/pages/homepage/homepage";
@@ -15,11 +16,14 @@ import Contact from "./js/pages/contact/contact";
 
 import "./app.scss";
 
-function App({ currentUser }) {
+function App({ currentUser, checkUserSession }) {
+  useEffect(() => {
+    checkUserSession();
+  }, []);
   const params = require("./assets/particles.json");
   return (
     <>
-      <Particles className="sticky-top particles " params={params} />
+      <Particles className="particles " params={params} />
       <NavBar />
       <Switch>
         <Route exact path="/" component={Homepage} />
@@ -40,4 +44,8 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchTpProps = (dispatch) => ({
+  checkUserSession: () => dispatch(checkUserSession()),
+});
+
+export default connect(mapStateToProps, mapDispatchTpProps)(App);
