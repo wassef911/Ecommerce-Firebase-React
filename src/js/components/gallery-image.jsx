@@ -6,15 +6,15 @@ function GalleryImage({ title, imageUrl, size, linkUrl }) {
   let height;
   if (size === "large") {
     width = 25 * 1.5;
-    height = 10 * 1.5;
+    height = 10 * 3;
   } else {
-    width = 25 * 1.01;
-    height = 10 * 1.5;
+    width = 25 * 1.03;
+    height = 10 * 3;
   }
   var style = {
     backgroundImage: `url(${imageUrl})`,
-    height: `${height}em`,
-    width: `${width}em`,
+    height: `${height}vh`,
+    width: `${width}vw`,
   };
   return (
     <div className="GalleryImage m-3 bounceIn fast" style={style}>

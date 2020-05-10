@@ -12,7 +12,7 @@ function ImageGallery({ sections }) {
   return (
     <div
       id="ImageGallery"
-      className="pt-3 d-flex flex-wrap justify-content-center"
+      className="pt-4 d-flex flex-wrap justify-content-center"
     >
       {sections.map((value) => {
         return <GalleryImage key={value.id} {...value} />;

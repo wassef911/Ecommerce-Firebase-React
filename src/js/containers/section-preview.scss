@@ -2,9 +2,10 @@
 
 .SectionPreview {
   span {
-    padding-left: 3%;
+    padding-left: 15%;
     margin: 2.5%;
     font-size: 1.2em;
+
     &:hover {
       @include hovereffect($color1, $color3);
       text-shadow: 2px 2px 1px black;
