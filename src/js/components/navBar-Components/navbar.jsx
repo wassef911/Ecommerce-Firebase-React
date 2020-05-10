@@ -64,7 +64,7 @@ const NavBar = ({ currentUser, location, toggleCartHidden, signOutStart }) => {
             ) : (
               <NavbarItem content="SIGN IN" to="/sign" />
             )}
-            {currentUser ? (
+            {!!currentUser ? (
               <UserImg
                 displayName={currentUser.displayName}
                 photoURL={currentUser.photoURL}

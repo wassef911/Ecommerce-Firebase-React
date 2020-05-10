@@ -26,6 +26,7 @@ function SignUp({ signUpStart }) {
         <span>I don't have an account</span>
       </h1>
       <h3>Sign up with your email and password.</h3>
+      {User.displayName}
       <form onSubmit={handleSubmit(onSubmit)}>
         <TextInput title="Display Name">
           <input
