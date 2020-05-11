@@ -34,7 +34,7 @@ function StripeButton({ price }) {
         description={`Your total is ${price} DT`}
         amount={PriceForStripe}
         panelLabel="Pay Now"
-        token={() => onToken()}
+        token={onToken}
         stripeKey={publishableKey}
         ComponentClass="div"
       />
