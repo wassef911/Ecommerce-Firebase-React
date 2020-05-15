@@ -81,7 +81,7 @@ function SignUp({ signUpStart }) {
               setUser({ ...User, confirmPassword: e.target.value })
             }
           ></input>
-          {User.password != User.confirmPassword && (
+          {User.password !== User.confirmPassword && (
             <FormError> * Email is invalid.</FormError>
           )}
         </TextInput>

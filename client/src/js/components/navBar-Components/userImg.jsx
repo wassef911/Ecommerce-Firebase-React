@@ -5,7 +5,7 @@ function UserImg({ displayName, photoURL }) {
   return (
     <li className="nav-item">
       <div data-toggle="tooltip" title={iconName.replace(/['"]+/g, "")}>
-        {photoURL == undefined ? (
+        {photoURL === undefined ? (
           <div className="user-img mx-2">{iconName[1]}</div>
         ) : (
           <div

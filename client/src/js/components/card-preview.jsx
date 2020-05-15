@@ -13,7 +13,7 @@ function CardPreview({ item, addItem }) {
           <button
             type="button"
             onClick={() => addItem(item)}
-            class="btn btn-primary mx-4 addToCart"
+            className="btn btn-primary mx-4 addToCart"
           >
             ADD TO CART
           </button>

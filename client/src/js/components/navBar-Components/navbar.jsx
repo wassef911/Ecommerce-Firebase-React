@@ -5,7 +5,6 @@ import { ToastContainer, toast, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { selectCurrentUser } from "../../../redux/user/userSelector";
-import { selectHidden } from "../../../redux/cart/cartSelector";
 import { toggleCartHidden } from "../../../redux/cart/cartAction";
 import { signOutStart } from "../../../redux/user/userActions";
 
@@ -44,6 +43,7 @@ const NavBar = ({ currentUser, location, toggleCartHidden, signOutStart }) => {
           className="navbar-brand p-0"
           href="https://github.com/wassef911/Cloth-Store"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <h3 className="logo">Cloth Store</h3>
         </a>
@@ -74,7 +74,7 @@ const NavBar = ({ currentUser, location, toggleCartHidden, signOutStart }) => {
             <NavbarItem>
               <button
                 type="button"
-                class="btn nav-link p-1"
+                className="btn nav-link p-1"
                 data-toggle="modal"
                 data-target="#exampleModalScrollable"
                 onClick={toggleCartHidden}
