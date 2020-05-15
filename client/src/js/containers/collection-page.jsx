@@ -1,5 +1,4 @@
 import React from "react";
-
 import CardPreview from "../components/card-preview";
 
 import "./section-preview.scss";
@@ -12,8 +11,8 @@ function CollectionPage({ collection }) {
         <span>{title.toUpperCase()}</span>
       </h1>
       <div className="d-flex flex-wrap justify-content-center ">
-        {items.map((item, id) => (
-          <CardPreview key={id} item={item} />
+        {items.map((item) => (
+          <CardPreview key={item.id} item={item} />
         ))}
       </div>
     </div>

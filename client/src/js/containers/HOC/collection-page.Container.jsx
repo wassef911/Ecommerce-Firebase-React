@@ -6,8 +6,8 @@ import CollectionPage from "../collection-page";
 import Spinner from "../../components/spinner";
 
 const GET_COLLECTIONS_BY_TITLE = gql`
-  query getCollectionByTitle($name: String) {
-    getCollectionByTitle(title: $name) {
+  query getCollectionsByTitle($name: String) {
+    getCollectionsByTitle(title: $name) {
       id
       title
       items {
@@ -21,18 +21,14 @@ const GET_COLLECTIONS_BY_TITLE = gql`
 `;
 
 function CollectionPageContainer({ match }) {
-  console.log(match.params.collectionId.trim());
   return (
     <Query
       query={GET_COLLECTIONS_BY_TITLE}
-      variables={{ name: match.params.collectionId }}
+      variables={{ name: match.params.collectionId.trim() }}
     >
-      {({ loading, error, data: getCollectionByTitle }) => {
-        console.log("rabi");
-        console.log(error);
-
+      {({ loading, data }) => {
         if (loading) return <Spinner />;
-        return <CollectionPage collection={getCollectionByTitle} />;
+        return <CollectionPage collection={data.getCollectionsByTitle} />;
       }}
     </Query>
   );

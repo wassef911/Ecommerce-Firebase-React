@@ -5,7 +5,7 @@
     padding-left: 15%;
     margin: 2.5%;
     font-size: 1.2em;
-
+    text-decoration: none;
     &:hover {
       @include hovereffect($color1, $color3);
       text-shadow: 2px 2px 1px black;
