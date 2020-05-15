@@ -19,10 +19,10 @@ import "./app.scss";
 function App({ currentUser, checkUserSession }) {
   useEffect(() => {
     checkUserSession();
-  }, []);
+  });
   const params = require("./assets/particles.json");
   return (
-    <>
+    <div>
       <Particles className="particles " params={params} />
       <NavBar />
       <Switch>
@@ -36,7 +36,7 @@ function App({ currentUser, checkUserSession }) {
         <Route exact path="/contact" component={Contact} />
         <Route path="/checkout" component={Checkout} />
       </Switch>
-    </>
+    </div>
   );
 }
 
