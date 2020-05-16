@@ -5,11 +5,10 @@ import { ToastContainer, toast, Slide } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { selectCurrentUser } from "../../../redux/user/userSelector";
-import { toggleCartHidden } from "../../../redux/cart/cartAction";
 import { signOutStart } from "../../../redux/user/userActions";
 
-import CartIcon from "./cart-icon";
-import CartDropDown from "./cartDropDown";
+import { default as CartIcon } from "./cartIcon.container";
+import { default as CartDropDown } from "./cartDropDown.container";
 import NavbarItem from "./navbarItem";
 import ToogleButton from "./toogleButton";
 
@@ -91,14 +90,13 @@ const NavBar = ({
           </ul>
         </div>
       </nav>
-      <CartDropDown />
+      {hidden ? <CartDropDown /> : null}
       <div className="block"></div>
     </>
   );
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  toggleCartHidden: () => dispatch(toggleCartHidden()),
   signOutStart: () => dispatch(signOutStart()),
 });
 

@@ -34,8 +34,9 @@ const client = new ApolloClient({
 });
 
 client.writeData({
-  date: {
+  data: {
     cartHidden: true,
+    cartItems: [],
   },
 });
 
