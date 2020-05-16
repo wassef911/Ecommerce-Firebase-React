@@ -16,7 +16,13 @@ import ToogleButton from "./toogleButton";
 import "./navbar.scss";
 import UserImg from "./userImg";
 
-const NavBar = ({ currentUser, location, toggleCartHidden, signOutStart }) => {
+const NavBar = ({
+  currentUser,
+  location,
+  toggleCartHidden,
+  hidden,
+  signOutStart,
+}) => {
   const properDocTitle = (location) => {
     let pathName = location;
     if (pathName === "/") pathName = "home";

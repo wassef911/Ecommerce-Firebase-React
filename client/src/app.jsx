@@ -7,7 +7,7 @@ import Particles from "react-particles-js";
 import { selectCurrentUser } from "./redux/user/userSelector";
 import { checkUserSession } from "./redux/user/userActions";
 
-import NavBar from "./js/components/navBar-Components/navbar";
+import { default as NavBar } from "./js/containers/navbar.container";
 import Homepage from "./js/pages/homepage/homepage";
 import Shop from "./js/pages/shop/shop";
 import Sign from "./js/pages/sign/sign";
