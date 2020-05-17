@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import CardPreview from "../components/card-preview";
+import { default as CardPreview } from "../components/card-preview.container";
 import "./section-preview.scss";
 
 function SectionPreview({ title, items }) {
@@ -22,9 +22,9 @@ function SectionPreview({ title, items }) {
       </h1>
       <div className="d-flex flex-wrap justify-content-center ">
         {items
-          .filter((item, id) => id < 4)
-          .map((item) => (
-            <CardPreview key={item.id} item={item} />
+          .filter((item) => item.id < 4)
+          .map((item, id) => (
+            <CardPreview key={id} item={item} />
           ))}
       </div>
     </div>

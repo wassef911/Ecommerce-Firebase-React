@@ -1,6 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
-import { addItem } from "../../redux/cart/cartAction";
+
 function CardPreview({ item, addItem }) {
   const { name, imageUrl, price } = item;
   return (
@@ -26,8 +25,5 @@ function CardPreview({ item, addItem }) {
     </div>
   );
 }
-const mapDispatchToProps = (dispatch) => ({
-  addItem: (item) => dispatch(addItem(item)),
-});
 
-export default connect(null, mapDispatchToProps)(CardPreview);
+export default CardPreview;
