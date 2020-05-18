@@ -1,5 +1,5 @@
 import React from "react";
-import CardPreview from "../components/card-preview";
+import { default as CardPreview } from "../components/card-preview.container";
 
 import "./section-preview.scss";
 

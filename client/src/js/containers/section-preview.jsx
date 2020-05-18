@@ -22,7 +22,7 @@ function SectionPreview({ title, items }) {
       </h1>
       <div className="d-flex flex-wrap justify-content-center ">
         {items
-          .filter((item) => item.id < 4)
+          .filter((item, id) => id < 4)
           .map((item, id) => (
             <CardPreview key={id} item={item} />
           ))}

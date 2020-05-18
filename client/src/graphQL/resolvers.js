@@ -1,7 +1,7 @@
 import { gql } from "apollo-boost";
 
-import { GET_CART_HIDDEN, GET_CART_ITEMS } from "./querys";
-import { addItemToCart } from "./cartUtils";
+import { GET_CART_HIDDEN, GET_CART_ITEMS, GET_ITEM_COUNT } from "./querys";
+import { addItemToCart, getCartItemCount } from "./cartUtils";
 
 export const typeDefs = gql`
   extend type Item {
@@ -26,7 +26,7 @@ export const resolvers = {
       return !cartHidden;
     },
 
-    AddItemToCart: (_root, { item }, { cache }) => {
+    addItemToCart: (_root, { item }, { cache }) => {
       const { cartItems } = cache.readQuery({
         query: GET_CART_ITEMS,
       });

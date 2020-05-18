@@ -5,8 +5,8 @@ import { gql } from "apollo-boost";
 import CardPreview from "./card-preview";
 
 const ADD_ITEM_TO_CART = gql`
-  mutation AddItemToCart($item: Item!) {
-    AddItemToCart(item: $item) @client
+  mutation addItemToCart($item: Item!) {
+    addItemToCart(item: $item) @client
   }
 `;
 function cardPreviewContainer(props) {

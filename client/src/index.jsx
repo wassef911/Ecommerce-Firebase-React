@@ -18,10 +18,6 @@ import "animate.css";
 
 const httpLink = createHttpLink({
   uri: "https://crwn-clothing.com",
-  onError: ({ networkError, graphQLErrors }) => {
-    console.log("graphQLErrors", graphQLErrors);
-    console.log("networkError", networkError);
-  },
 });
 
 const cache = new InMemoryCache();
@@ -37,6 +33,7 @@ client.writeData({
   data: {
     cartHidden: true,
     cartItems: [],
+    itemCount: 0,
   },
 });
 

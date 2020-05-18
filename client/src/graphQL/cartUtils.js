@@ -23,3 +23,8 @@ export const DecQuant = (cartItems, ItemToDecQuant) => {
     return cartItems.filter((item) => item.id !== ItemToDecQuant.id);
   }
 };
+
+export const getCartItemCount = (cartItems) =>
+  cartItems.reduce(function (sum, value) {
+    return sum + value.quantity;
+  }, 0);
