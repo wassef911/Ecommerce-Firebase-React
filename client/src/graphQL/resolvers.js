@@ -36,6 +36,10 @@ export const resolvers = {
         query: GET_CART_ITEMS,
         data: { cartItems: newCart },
       });
+      cache.writeQuery({
+        query: GET_ITEM_COUNT,
+        data: { itemsCount: getCartItemCount(newCart) },
+      });
       return newCart;
     },
   },

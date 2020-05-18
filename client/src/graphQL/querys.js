@@ -13,6 +13,6 @@ export const GET_CART_ITEMS = gql`
 
 export const GET_ITEM_COUNT = gql`
   {
-    itemCount @client
+    itemsCount @client
   }
 `;
