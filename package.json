@@ -18,6 +18,7 @@
     "cors": "2.8.5",
     "dotenv": "8.2.0",
     "express": "^4.16.4",
+    "lodash.flowright": "^3.5.0",
     "stripe": "8.51.0"
   },
   "devDependencies": {
