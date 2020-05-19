@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
@@ -9,13 +9,14 @@ import { checkUserSession } from "./redux/user/userActions";
 import params from "./js/utils/particles";
 
 import { default as NavBar } from "./js/containers/navbar.container";
-import Homepage from "./js/pages/homepage/homepage";
-import Shop from "./js/pages/shop/shop";
-import Sign from "./js/pages/sign/sign";
-import Checkout from "./js/pages/checkout/checkout";
-import Contact from "./js/pages/contact/contact";
-
+import Spinner from "./js/components/spinner";
 import "./app.scss";
+
+const Homepage = lazy(() => import("./js/pages/homepage/homepage"));
+const Shop = lazy(() => import("./js/pages/shop/shop"));
+const Sign = lazy(() => import("./js/pages/sign/sign"));
+const Checkout = lazy(() => import("./js/pages/checkout/checkout"));
+const Contact = lazy(() => import("./js/pages/contact/contact"));
 
 function App({ currentUser, checkUserSession }) {
   useEffect(() => {
@@ -26,15 +27,17 @@ function App({ currentUser, checkUserSession }) {
       <Particles className="particles " params={params} />
       <NavBar />
       <Switch>
-        <Route exact path="/" component={Homepage} />
-        <Route path="/shop" component={Shop} />
-        <Route
-          exact
-          path="/sign"
-          render={() => (currentUser ? <Redirect to="/" /> : <Sign />)}
-        />
-        <Route exact path="/contact" component={Contact} />
-        <Route path="/checkout" component={Checkout} />
+        <Suspense fallback={Spinner}>
+          <Route exact path="/" component={Homepage} />
+          <Route path="/shop" component={Shop} />
+          <Route
+            exact
+            path="/sign"
+            render={() => (currentUser ? <Redirect to="/" /> : <Sign />)}
+          />
+          <Route exact path="/contact" component={Contact} />
+          <Route path="/checkout" component={Checkout} />
+        </Suspense>
       </Switch>
     </div>
   );

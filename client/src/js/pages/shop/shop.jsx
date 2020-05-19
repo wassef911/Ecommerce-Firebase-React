@@ -1,11 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { fetchCollectionsStart } from "../../../redux/shop/shopActions";
 
-import ShopCollectionContainer from "../../containers/HOC/shopCollection.Container";
-import CollectionPageContainer from "../../containers/HOC/collection-page.Container";
+import Spinner from "../../components/spinner";
+const ShopCollectionContainer = lazy(() =>
+  import("../../containers/HOC/shopCollection.Container")
+);
+const CollectionPageContainer = lazy(() =>
+  import("../../containers/HOC/collection-page.Container")
+);
 
 function Shop({ match, fetchCollections }) {
   useEffect(() => {
@@ -13,12 +18,18 @@ function Shop({ match, fetchCollections }) {
   });
   return (
     <div id="scrollBarStyle">
-      <Route exact path={`${match.path}`} component={ShopCollectionContainer} />
-      <Route
-        exact
-        path={`${match.path}/:collectionId`}
-        component={CollectionPageContainer}
-      />
+      <Suspense fallback={Spinner}>
+        <Route
+          exact
+          path={`${match.path}`}
+          component={ShopCollectionContainer}
+        />
+        <Route
+          exact
+          path={`${match.path}/:collectionId`}
+          component={CollectionPageContainer}
+        />
+      </Suspense>
     </div>
   );
 }
