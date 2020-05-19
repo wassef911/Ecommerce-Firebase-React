@@ -6,7 +6,7 @@ import {
   googleSigninStart,
   EmailSigninStart,
 } from "../../redux/user/userActions";
-import validation from "../../form-validations";
+import validation from "../utils/form-validations";
 
 import TextInput from "../components/textInput";
 import FormError from "../components/formError";

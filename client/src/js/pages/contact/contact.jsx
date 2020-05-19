@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
-import validation from "../../../form-validations";
+import validation from "../../utils/form-validations";
 
 import TextInput from "../../components/textInput";
 import FormError from "../../components/formError";

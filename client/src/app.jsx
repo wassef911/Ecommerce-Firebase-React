@@ -6,6 +6,7 @@ import Particles from "react-particles-js";
 
 import { selectCurrentUser } from "./redux/user/userSelector";
 import { checkUserSession } from "./redux/user/userActions";
+import params from "./js/utils/particles";
 
 import { default as NavBar } from "./js/containers/navbar.container";
 import Homepage from "./js/pages/homepage/homepage";
@@ -20,7 +21,6 @@ function App({ currentUser, checkUserSession }) {
   useEffect(() => {
     checkUserSession();
   });
-  const params = require("./assets/particles.json");
   return (
     <div>
       <Particles className="particles " params={params} />
