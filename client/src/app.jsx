@@ -10,6 +10,8 @@ import params from "./js/utils/particles";
 
 import { default as NavBar } from "./js/containers/navbar.container";
 import Spinner from "./js/components/spinner";
+import ErrorBoundry from "./js/components/error-boundry";
+
 import "./app.scss";
 
 const Homepage = lazy(() => import("./js/pages/homepage/homepage"));
@@ -27,17 +29,19 @@ function App({ currentUser, checkUserSession }) {
       <Particles className="particles " params={params} />
       <NavBar />
       <Switch>
-        <Suspense fallback={Spinner}>
-          <Route exact path="/" component={Homepage} />
-          <Route path="/shop" component={Shop} />
-          <Route
-            exact
-            path="/sign"
-            render={() => (currentUser ? <Redirect to="/" /> : <Sign />)}
-          />
-          <Route exact path="/contact" component={Contact} />
-          <Route path="/checkout" component={Checkout} />
-        </Suspense>
+        <ErrorBoundry>
+          <Suspense fallback={Spinner}>
+            <Route exact path="/" component={Homepage} />
+            <Route path="/shop" component={Shop} />
+            <Route
+              exact
+              path="/sign"
+              render={() => (currentUser ? <Redirect to="/" /> : <Sign />)}
+            />
+            <Route exact path="/contact" component={Contact} />
+            <Route path="/checkout" component={Checkout} />
+          </Suspense>
+        </ErrorBoundry>
       </Switch>
     </div>
   );
