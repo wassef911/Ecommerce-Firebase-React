@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 
 import SmallCardPreview from "./card-previewIncart";
 
-function CartDropDown({ cartItems, history, toggleCartHidden }) {
+function CartDropDown({ cartItems, history }) {
   return (
     <div
       className="modal fade"

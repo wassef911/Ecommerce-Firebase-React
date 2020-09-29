@@ -1,8 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { ToastContainer, toast, Slide } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 import { selectCurrentUser } from "../../../redux/user/userSelector";
 import { signOutStart } from "../../../redux/user/userActions";
@@ -11,9 +9,10 @@ import { default as CartIcon } from "./cartIcon.container";
 import { default as CartDropDown } from "./cartDropDown.container";
 import NavbarItem from "./navbarItem";
 import ToogleButton from "./toogleButton";
-
-import "./navbar.scss";
 import UserImg from "./userImg";
+
+import { properDocTitle } from "../../utils/util-functions";
+import "./navbar.scss";
 
 const NavBar = ({
   currentUser,
@@ -22,27 +21,9 @@ const NavBar = ({
   hidden,
   signOutStart,
 }) => {
-  const properDocTitle = (location) => {
-    let pathName = location;
-    if (pathName === "/") pathName = "home";
-
-    let locationName = pathName.split("/").join(" ");
-    locationName = locationName.split(" ");
-
-    return locationName[locationName.length - 1].toUpperCase();
-  };
   document.title = properDocTitle(location.pathname);
-
-  const notify = () =>
-    toast.warn("© 2020 : Wassef Ben Ahmed !", {
-      position: toast.POSITION.BOTTOM_LEFT,
-    });
-  useEffect(() => {
-    notify();
-  }, []);
   return (
     <>
-      <ToastContainer transition={Slide} />
       <nav className="mb-1 navBar navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <a
           className="navbar-brand p-0"
@@ -90,7 +71,7 @@ const NavBar = ({
           </ul>
         </div>
       </nav>
-      {hidden ? <CartDropDown /> : null}
+      <CartDropDown />
       <div className="block"></div>
     </>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect, lazy, Suspense } from "react";
+import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
@@ -14,14 +14,13 @@ import ErrorBoundry from "./js/components/error-boundry";
 
 import "./app.scss";
 
-const Homepage = lazy(() => import("./js/pages/homepage/homepage"));
-const Shop = lazy(() => import("./js/pages/shop/shop"));
-const Sign = lazy(() => import("./js/pages/sign/sign"));
-const Checkout = lazy(() => import("./js/pages/checkout/checkout"));
-const Contact = lazy(() => import("./js/pages/contact/contact"));
+const Homepage = React.lazy(() => import("./js/pages/homepage/homepage"));
+const Shop = React.lazy(() => import("./js/pages/shop/shop"));
+const Sign = React.lazy(() => import("./js/pages/sign/sign"));
+const Checkout = React.lazy(() => import("./js/pages/checkout/checkout"));
 
 function App({ currentUser, checkUserSession }) {
-  useEffect(() => {
+  React.useEffect(() => {
     checkUserSession();
   });
   return (
@@ -30,7 +29,7 @@ function App({ currentUser, checkUserSession }) {
       <NavBar />
       <Switch>
         <ErrorBoundry>
-          <Suspense fallback={Spinner}>
+          <React.Suspense fallback={Spinner}>
             <Route exact path="/" component={Homepage} />
             <Route path="/shop" component={Shop} />
             <Route
@@ -38,9 +37,8 @@ function App({ currentUser, checkUserSession }) {
               path="/sign"
               render={() => (currentUser ? <Redirect to="/" /> : <Sign />)}
             />
-            <Route exact path="/contact" component={Contact} />
             <Route path="/checkout" component={Checkout} />
-          </Suspense>
+          </React.Suspense>
         </ErrorBoundry>
       </Switch>
     </div>

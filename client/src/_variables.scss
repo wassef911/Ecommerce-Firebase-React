@@ -12,9 +12,9 @@ $color0: linear-gradient(60deg, rgb(13, 20, 20) 20%, rgb(0, 6, 14) 100%),
       rgba(0, 13, 20, 0.575) 100%
     )
     #00060e;
-$color1: #fd9845;
-$color2: #ffcdab;
-$color3: #fff4e3;
+$color1: #ff831d;
+$color2: #faa76f;
+$color3: #ffffff;
 
 @mixin hovereffect($bg, $col) {
   background-color: $bg;

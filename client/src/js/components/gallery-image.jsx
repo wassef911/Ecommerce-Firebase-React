@@ -21,7 +21,7 @@ function GalleryImage({ title, imageUrl, size, linkUrl }) {
       <Link to={linkUrl} style={{ textDecoration: "none" }}>
         <div className="sectiontitle mx-auto">
           <h1>{title.toUpperCase()}</h1>
-          <h4>SHOP NOW</h4>
+          <h2>SHOP NOW</h2>
         </div>
       </Link>
     </div>

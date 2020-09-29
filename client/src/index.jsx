@@ -15,7 +15,6 @@ import { resolvers, typeDefs } from "./graphQL/resolvers";
 import { store, persistor } from "./redux/store";
 
 import App from "./app";
-import "animate.css";
 
 const httpLink = createHttpLink({
   uri: "https://crwn-clothing.com",
