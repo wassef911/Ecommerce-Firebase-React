@@ -1,6 +1,7 @@
 @import "../../variables";
 
 #ImageGallery {
+  overflow: hidden;
   & .GalleryImage {
     text-align: center;
     background-size: cover;

@@ -17,7 +17,7 @@ $color2: #faa76f;
 $color3: #ffffff;
 
 @mixin hovereffect($bg, $col) {
-  background-color: $bg;
+  background: radial-gradient(ellipse at top, $bg, transparent);
   color: $col;
   cursor: default;
 }
@@ -31,3 +31,7 @@ $color3: #ffffff;
   background: radial-gradient(ellipse at top, $color3, transparent),
     radial-gradient(ellipse at bottom, #f8f8f800, transparent);
 }
+$theme-colors: (
+  "primary": $color1,
+);
+@import "node_modules/bootstrap/scss/bootstrap";

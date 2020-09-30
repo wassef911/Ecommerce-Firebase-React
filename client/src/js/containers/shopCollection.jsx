@@ -17,4 +17,4 @@ function CollectionOverview({ shopData }) {
 const mapStateToProps = createStructuredSelector({
   shopData: selectCollectionsForPreview,
 });
-export default connect(mapStateToProps)(CollectionOverview);
+export default connect(mapStateToProps)(React.memo(CollectionOverview));

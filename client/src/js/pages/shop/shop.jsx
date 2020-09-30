@@ -14,7 +14,7 @@ function Shop({ match, fetchCollections }) {
   }, []);
   return (
     <div id="scrollBarStyle">
-      <Suspense fallback={Spinner}>
+      <Suspense fallback={<Spinner />}>
         <Route exact path={`${match.path}`} component={ShopCollection} />
         <Route
           exact

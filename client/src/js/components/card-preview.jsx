@@ -20,7 +20,7 @@ function CardPreview({ item, addItem }) {
         </div>
         <div className="card-info d-flex justify-content-between">
           <h5>{name}</h5>
-          <h5>{price} DT</h5>
+          <h4>{price} DT</h4>
         </div>
       </div>
     </div>

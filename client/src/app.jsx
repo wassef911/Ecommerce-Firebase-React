@@ -22,14 +22,14 @@ const Sign = React.lazy(() => import("./js/pages/sign/sign"));
 function App({ currentUser, checkUserSession }) {
   React.useEffect(() => {
     checkUserSession();
-  }, []);
+  }, [currentUser]);
   return (
     <div>
-      <Particles className="particles " params={params} />
+      <Particles className="particles" params={params} />
       <NavBar />
       <Switch>
         <ErrorBoundry>
-          <React.Suspense fallback={Spinner}>
+          <React.Suspense fallback={<Spinner />}>
             <Route exact path="/" component={Homepage} />
             <Route path="/shop" component={Shop} />
             <Route

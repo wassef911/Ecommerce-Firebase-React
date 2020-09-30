@@ -24,4 +24,4 @@ const mapStateToProps = (state, OwnProps) => ({
   )(state),
 });
 
-export default connect(mapStateToProps)(CollectionPage);
+export default connect(mapStateToProps)(React.memo(CollectionPage));

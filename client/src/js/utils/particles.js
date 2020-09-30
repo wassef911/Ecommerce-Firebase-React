@@ -1,10 +1,10 @@
 const params = {
   particles: {
     number: {
-      value: 150,
+      value: 160,
       density: {
         enable: true,
-        value_area: 1000,
+        value_area: 800,
       },
     },
     color: {
@@ -13,35 +13,40 @@ const params = {
     shape: {
       type: "polygon",
       stroke: {
-        width: 2,
+        width: 0,
         color: "#000000",
       },
       polygon: {
-        nb_sides: 5,
+        nb_sides: 3,
+      },
+      image: {
+        src: "img/github.svg",
+        width: 100,
+        height: 100,
       },
     },
     opacity: {
       value: 1,
-      random: false,
+      random: true,
       anim: {
-        enable: false,
-        speed: 10,
-        opacity_min: 0.1,
+        enable: true,
+        speed: 1,
+        opacity_min: 0,
         sync: false,
       },
     },
     size: {
-      value: 0,
+      value: 3,
       random: true,
       anim: {
         enable: false,
-        speed: 40,
-        size_min: 0.1,
+        speed: 4,
+        size_min: 0.3,
         sync: false,
       },
     },
     line_linked: {
-      enable: true,
+      enable: false,
       distance: 150,
       color: "#ffffff",
       opacity: 0.4,
@@ -49,16 +54,16 @@ const params = {
     },
     move: {
       enable: true,
-      speed: 6,
+      speed: 1,
       direction: "none",
-      random: false,
+      random: true,
       straight: false,
       out_mode: "out",
       bounce: false,
       attract: {
         enable: false,
         rotateX: 600,
-        rotateY: 1200,
+        rotateY: 600,
       },
     },
   },
@@ -66,12 +71,12 @@ const params = {
     detect_on: "canvas",
     events: {
       onhover: {
-        enable: true,
-        mode: "repulse",
+        enable: false,
+        mode: "bubble",
       },
       onclick: {
-        enable: false,
-        mode: "push",
+        enable: true,
+        mode: "repulse",
       },
       resize: true,
     },
@@ -83,14 +88,14 @@ const params = {
         },
       },
       bubble: {
-        distance: 400,
-        size: 40,
+        distance: 250,
+        size: 0,
         duration: 2,
-        opacity: 8,
+        opacity: 0,
         speed: 3,
       },
       repulse: {
-        distance: 80,
+        distance: 400,
         duration: 0.4,
       },
       push: {
@@ -101,6 +106,6 @@ const params = {
       },
     },
   },
-  retina_detect: true,
+  retina_detect: false,
 };
 export default params;
