@@ -5,8 +5,8 @@ import { withRouter } from "react-router-dom";
 import { selectCurrentUser } from "../../../redux/user/userSelector";
 import { signOutStart } from "../../../redux/user/userActions";
 
-import { default as CartIcon } from "./cartIcon.container";
-import { default as CartDropDown } from "./cartDropDown.container";
+import CartIcon from "./cart-icon";
+import CartDropDown from "./cartDropDown";
 import NavbarItem from "./navbarItem";
 import ToogleButton from "./toogleButton";
 import UserImg from "./userImg";
@@ -14,13 +14,7 @@ import UserImg from "./userImg";
 import { properDocTitle } from "../../utils/util-functions";
 import "./navbar.scss";
 
-const NavBar = ({
-  currentUser,
-  location,
-  toggleCartHidden,
-  hidden,
-  signOutStart,
-}) => {
+const NavBar = ({ currentUser, location, toggleCartHidden, signOutStart }) => {
   document.title = properDocTitle(location.pathname);
   return (
     <>
@@ -39,8 +33,6 @@ const NavBar = ({
           <ul className="navbar-nav ml-auto">
             <NavbarItem content="HOME" to="/" />
             <NavbarItem content="SHOP" to="/shop" />
-            <NavbarItem content="CONTACT" to="/contact" />
-
             {currentUser ? (
               <NavbarItem>
                 <a className="nav-link" onClick={() => signOutStart()} href="/">

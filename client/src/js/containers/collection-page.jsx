@@ -1,10 +1,10 @@
 import React from "react";
-import { default as CardPreview } from "../components/card-preview.container";
-
+import { connect } from "react-redux";
+import { selectCollection } from "../../redux/shop/shopSelector";
+import CardPreview from "../components/card-preview";
 import "./section-preview.scss";
-
 function CollectionPage({ collection }) {
-  const { title, items } = collection;
+  let { title, items } = collection;
   return (
     <div className="SectionPreview ">
       <h1>
@@ -18,5 +18,10 @@ function CollectionPage({ collection }) {
     </div>
   );
 }
+const mapStateToProps = (state, OwnProps) => ({
+  collection: selectCollection(
+    OwnProps.match.params.collectionId.toLowerCase()
+  )(state),
+});
 
-export default CollectionPage;
+export default connect(mapStateToProps)(CollectionPage);

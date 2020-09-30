@@ -1,5 +1,6 @@
 import React from "react";
-
+import { connect } from "react-redux";
+import { addItem } from "../../redux/cart/cartAction";
 function CardPreview({ item, addItem }) {
   const { name, imageUrl, price } = item;
   return (
@@ -12,7 +13,7 @@ function CardPreview({ item, addItem }) {
           <button
             type="button"
             onClick={() => addItem(item)}
-            className="btn btn-primary mx-4 addToCart"
+            class="btn btn-primary mx-4 addToCart"
           >
             ADD TO CART
           </button>
@@ -25,5 +26,8 @@ function CardPreview({ item, addItem }) {
     </div>
   );
 }
+const mapDispatchToProps = (dispatch) => ({
+  addItem: (item) => dispatch(addItem(item)),
+});
 
-export default CardPreview;
+export default connect(null, mapDispatchToProps)(CardPreview);

@@ -1,15 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
-import { createStructuredSelector } from "reselect";
-import {
-  selectCartItems,
-  selectCartItemsTotal,
-} from "../../../redux/cart/cartSelector";
-import {
-  clearItem,
-  decQuantity,
-  addItem,
-} from "../../../redux/cart/cartAction";
 
 import "./checkout.scss";
 import StripeButton from "../../components/stripeButton";
@@ -20,8 +9,8 @@ function Checkout({ cartItems, Total, clearItem, decQuantity, addItem }) {
       {Total > 0 ? (
         <div className="d-flex  align-items-center justify-content-around titles">
           {["Product", "Description", "Quantity", "Price", "Remove"].map(
-            (value) => (
-              <h4 className="title ">{value}</h4>
+            (desc) => (
+              <h4 className="title ">{desc}</h4>
             )
           )}
         </div>
@@ -67,13 +56,4 @@ function Checkout({ cartItems, Total, clearItem, decQuantity, addItem }) {
     </>
   );
 }
-const mapDispatchToProps = (dispatch) => ({
-  clearItem: (item) => dispatch(clearItem(item)),
-  decQuantity: (item) => dispatch(decQuantity(item)),
-  addItem: (item) => dispatch(addItem(item)),
-});
-const mapStateToProps = createStructuredSelector({
-  cartItems: selectCartItems,
-  Total: selectCartItemsTotal,
-});
-export default connect(mapStateToProps, mapDispatchToProps)(Checkout);
+export default Checkout;

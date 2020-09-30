@@ -8,6 +8,8 @@ $theme-colors: (
 html {
   height: 100%;
   overflow-x: hidden;
+  user-select: none; /* Standard */
+
   body {
     height: 100%;
     background: $color0;

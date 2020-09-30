@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { default as CardPreview } from "../components/card-preview.container";
+import CardPreview from "../components/card-preview";
 import "./section-preview.scss";
 
 function SectionPreview({ title, items }) {
